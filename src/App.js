@@ -1,0 +1,23 @@
+
+import { Navigate } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Login from './components/Login/login';
+import Admin from './adimin';
+import Students from './components/Metron/Students';
+import LandingPage from './landing';
+
+export default function App() {
+  return (
+    <div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/landing" element={<LandingPage/>} />
+          <Route path="/adimin" element={<Admin/>} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/adimin/sutudent" element ={<Students />} />
+          <Route path="*" element={<Navigate to="/landing" />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
+  );
+}
