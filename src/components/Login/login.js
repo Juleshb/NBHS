@@ -1,4 +1,5 @@
 // import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import logo from '../../../src/assets/logo.png'
 function Login() {
   return (
@@ -13,10 +14,10 @@ function Login() {
             <div className="bg-white  rounded-lg p-4">
               <div className="relative">
                 <i className="fas fa-times p-3 cursor-pointer text-secondary opacity-5 absolute top-0 end-0 md:hidden" aria-hidden="true" id="iconSidenav"></i>
-                <a className="navbar-brand flex m-0" href="index.php">
+                <Link className="navbar-brand flex m-0" to="/studentpage">
                   <img src={logo} className="h-20" alt="main_logo" />
                   <span className="ms-1 font-semibold text-primary "><br></br> Clinical Placement</span>
-                </a>
+                </Link>
               </div>
 
               <div className="mt-4">

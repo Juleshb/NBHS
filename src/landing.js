@@ -2,6 +2,7 @@ import Navbar from "./components/Nav/landingNav";
 import { Icon } from "@iconify/react";
 import backgroundImage from "./assets/background.jpg"
 import Studentsform from "./components/Metron/Studentform";
+import { Link } from "react-router-dom";
 
 const LandingPage = () => {
 
@@ -135,7 +136,7 @@ const LandingPage = () => {
                     Go to the link Application, Complete all Information After Finding your Information you will recive comfrimation Email.
                     </p>
                     <p className="underline text-base mt-5">
-                      <a href="/1/clinical/doctors" title="Meet our doctors" className="">
+                      <a href="#register" title="Meet our doctors" className="">
                         Register now
                        </a>
                     </p>
@@ -155,9 +156,9 @@ const LandingPage = () => {
                     Please login with your E-mail ID, and password that you either created when you completed the application or that you have been given.
                     </p>
                     <p className="underline text-base mt-5">
-                      <a href="/1/clinical/doctors" title="Meet our doctors" className="">
+                      <Link href="/1/clinical/doctors" title="Meet our doctors" to="/login" className="">
                         Login
-                       </a>
+                       </Link>
                     </p>
                   </div>
                 </div>
@@ -262,7 +263,7 @@ const LandingPage = () => {
         </section>
 
       
-        <section className="relative mt-20 block py-24 lg:pt-0 bg-blueGray-800">
+        <section className="relative mt-20 block py-24 lg:pt-0 bg-blueGray-800" id="register">
           <div className="container mx-auto px-4">
             <div className="flex flex-wrap justify-center lg:-mt-64 -mt-48">
               <div className="w-full lg:w-6/12 px-4">

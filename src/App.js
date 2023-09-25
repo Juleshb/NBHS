@@ -6,6 +6,7 @@ import Admin from './adimin';
 import Student from './student';
 import Students from './components/Metron/Students';
 import LandingPage from './landing';
+import Newapplication from './student/newapplication';
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
           {/* Sutudents */}
 
           <Route path="/studentpage" element={<Student/>} />
+          <Route path="/student/application" element={<Newapplication/>} />
 
           {/* Adimins */}
 

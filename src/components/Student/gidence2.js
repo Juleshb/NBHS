@@ -1,11 +1,12 @@
 import { Icon } from "@iconify/react";
+import { Link } from "react-router-dom";
 
 export default function Gidence2() {
   return (
     <>
         <div className="flex flex-wrap">
               <div className="lg:pt-12 pt-6 w-full md:w-4/12 px-4 text-center ">
-                <div className="hover:text-white hover:bg-primary text-primary relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
+                <div className="transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 duration-300 hover:text-white hover:bg-primary text-primary relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
                   <div className="px-4 py-5 flex-auto">
                     <div className="border hover:border-white text-5xl border-primary p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full ">
                     <Icon icon="line-md:uploading-loop" />
@@ -17,9 +18,9 @@ All Must be in PDF and Not more than 2Mbs
 If you are foreigner The Clinical Placement fee will be paid at your arrival in Kigali. And slip uploaded
                     </p>
                     <p className="underline text-base mt-5">
-                      <a href="/1/clinical/doctors" title="Meet our doctors" className="">
+                      <Link title="Meet our doctors" className=""  to="/student/application" >
                       Upload documents
-                       </a>
+                       </Link>
                     </p>
 
                   </div>
@@ -27,7 +28,7 @@ If you are foreigner The Clinical Placement fee will be paid at your arrival in 
               </div>
 
               <div className="w-full md:w-4/12 px-4 text-center">
-                <div className="hover:text-white hover:bg-primary text-primary relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
+                <div className="transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 duration-300 hover:text-white hover:bg-primary text-primary relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
                   <div className="px-4 py-5 flex-auto">
                     <div className="text-white border text-5xl border-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-primary">
                     <Icon icon="icon-park-solid:calendar" />
@@ -42,7 +43,7 @@ If you are foreigner The Clinical Placement fee will be paid at your arrival in 
               </div>
 
               <div className="pt-6 w-full md:w-4/12 px-4 text-center">
-                <div className="hover:text-white hover:bg-primary text-primary relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
+                <div className="transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 duration-300 hover:text-white hover:bg-primary text-primary relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
                   <div className="px-4 py-5 flex-auto">
                   <div className=" border text-5xl border-primary p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full ">
                   <Icon icon="mingcute:department-fill" />

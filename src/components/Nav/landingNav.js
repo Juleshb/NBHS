@@ -2,6 +2,7 @@
 import React from "react";
 import logo from '../../../src/assets/logo.png'
 import { Icon } from '@iconify/react';
+import { Link } from "react-router-dom";
 // components
 
 
@@ -36,13 +37,13 @@ export default function Navbar(props) {
           >
             <ul className="flex text-primary flex-col lg:flex-row list-none mr-auto">
               <li className="flex items-center">
-                <a
+                <Link
                   className=" px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-                  href="#"
+                 to="/login"
                 >
-                  <i className=" far fa-file-alt text-lg leading-lg mr-2" />{" "}
+                 
                   Login
-                </a>
+                </Link>
               </li>
             </ul>
             <ul className="flex text-primary flex-col lg:flex-row list-none lg:ml-auto">
@@ -52,8 +53,8 @@ export default function Navbar(props) {
               <li className="flex items-center">
                 <a
                   className=" px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-                  href=""
-                  target="_blank"
+                  href="#register"
+                  
                 >
                   <i className="fab fa-facebook text-lg leading-lg " />
                   <span className="lg:hidden inline-block ml-2">Register</span>
