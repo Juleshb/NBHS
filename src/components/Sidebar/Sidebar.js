@@ -23,10 +23,10 @@ export default function Sidebar() {
           {/* Brand */}
           <div className="relative">
                 <i className="fas fa-times p-3 cursor-pointer text-secondary opacity-5 absolute top-0 end-0 md:hidden" aria-hidden="true" id="iconSidenav">h</i>
-                <a className="navbar-brand flex m-0" href="index.php">
+                <Link className="navbar-brand flex m-0" to="/studentpage">
                   <img src={logo} className="h-10" alt="main_logo" />
                   <span className="hidden sm:inline-block ms-1 text-xs font-bold text-primary"> <br /> </span>                
-                  </a>
+                  </Link>
               </div>
           {/* User */}
           <ul className="md:hidden items-center flex flex-wrap list-none">
@@ -45,10 +45,10 @@ export default function Sidebar() {
             <div className="md:min-w-full md:hidden block pb-4 mb-4 ">
               <div className="flex flex-wrap">
                 <div className="w-6/12">
-                <a className="navbar-brand flex m-0" href="index.php">
+                <Link className="navbar-brand flex m-0" to="/studentpage">
                   <img src={logo} className="h-10" alt="main_logo" />
                   <span className="ms-1 text-xs font-bold text-primary "><br></br></span>
-                </a>
+                </Link>
                 </div>
                 <div className="w-6/12 flex justify-end">
                   <button
@@ -64,20 +64,21 @@ export default function Sidebar() {
 
            
             <ul className="md:flex-col text-base font-medium leading-normal md:min-w-full text-primary flex flex-col list-none">
-              <li className="items-center hover:bg-sky-100 px-4 rounded-lg ">
-                <Link
+            <li className={"font-semibold items-center transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 duration-300 hover:text-white hover:bg-primary px-4 rounded-lg " +
+                   (window.location.href.indexOf("/studentpage") !== -1 
+                     ? "transition ease-in-out delay-150  translate-y-1 scale-110 duration-300 text-white bg-primary"
+                     : "")
+                     }>
+              <Link
                   className={
-                    "text-xs   py-3 block flex " +
-                    (window.location.href.indexOf("/admin/dashboard") !== -1
-                      ? "text-lightBlue-500 hover:text-lightBlue-600"
-                      : " hover:text-blueGray-500")
+                    "text-xs flex  py-3 block " 
                   }
-                  to="/admin/dashboard"
+                  to="/studentpage"
                 >
                   <i
                     className={
                       "fas fa-tv mr-2 text-sm " +
-                      (window.location.href.indexOf("/admin/dashboard") !== -1
+                      (window.location.href.indexOf("/studentpage") !== -1
                         ? "opacity-75"
                         : "text-blueGray-300")
                     }
@@ -87,16 +88,16 @@ export default function Sidebar() {
                 </Link>
               </li>
 
-              <li className={"items-center hover:bg-sky-100 px-4 rounded-lg " +
-                   (window.location.href.indexOf("/adimin/sutudent") !== -1 
-                     ? "bg-sky-100 rounded-lg"
-                     : "hover:bg-sky-100")
+              <li className={"font-semibold items-center transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 duration-300 hover:text-white hover:bg-primary px-4 rounded-lg " +
+                   (window.location.href.indexOf("/student/application") !== -1 
+                     ? "transition ease-in-out delay-150  translate-y-1 scale-110 duration-300 text-white bg-primary"
+                     : "")
                      }>
                 <Link
                   className={
                     "text-xs flex  py-3 block " 
                   }
-                  to="/adimin/sutudent"
+                  to="/student/application"
                 >
                   <i
                     className={
@@ -105,13 +106,13 @@ export default function Sidebar() {
                         ? "opacity-75"
                         : "text-blueGray-300")
                     }
-                  ><Icon icon="ph:student-light" /></i>{" "}
+                  ><Icon icon="zondicons:add-outline" /></i>{" "}
                   
-                  Students
+                  Applicants
                 </Link>
               </li>
 
-              <li className="items-center hover:bg-sky-100 px-4 rounded-lg">
+              <li className="font-semibold items-center transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 duration-300 hover:text-white hover:bg-primary px-4 rounded-lg">
                 <Link
                   className={
                     "text-xs  flex py-3  block " +
@@ -128,13 +129,13 @@ export default function Sidebar() {
                         ? "opacity-75"
                         : "text-blueGray-300")
                     }
-                  ><Icon icon="fa-solid:users" /></i>{" "}
+                  ><Icon icon="healthicons:i-documents-accepted-outline" /></i>{" "}
                   
-                  Guardians
+                 Approved request
                 </Link>
               </li>
 
-              <li className="items-center hover:bg-sky-100 px-4 rounded-lg">
+              <li className="font-semibold items-center transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 duration-300 hover:text-white hover:bg-primary px-4 rounded-lg">
                 <Link
                   className={
                     "text-xs flex py-3  block " +
@@ -151,65 +152,36 @@ export default function Sidebar() {
                         ? "opacity-75"
                         : "text-blueGray-300")
                     }
-                  ><Icon icon="charm:graduate-cap" /></i>{" "}
+                  ><Icon icon="fluent:text-change-reject-20-regular" /></i>{" "}
                   
-                  levels/classes
+                  Rejected request
                 </Link>
               </li>
 
-              <li className="items-center hover:bg-sky-100 px-4 rounded-lg">
+              <li className="font-semibold items-center transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 duration-300 hover:text-white hover:bg-primary px-4 rounded-lg">
                 <Link
                   className=" hover:text-blueGray-500 text-xs flex  py-3 block"
                   to="/auth/login"
                 >
-                  <i className="fas fa-fingerprint text-blueGray-400 mr-2 text-sm"><Icon icon="vaadin:records" /></i>{" "}
+                  <i className="fas fa-fingerprint text-blueGray-400 mr-2 text-sm"><Icon icon="mdi:lan-pending" /></i>{" "}
                   
-                  Major offense
+                 Pending request
                 </Link>
               </li>
 
-              <li className="items-center hover:bg-sky-100 px-4 rounded-lg">
+              <li className=" font-semibold items-center transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 duration-300 hover:text-white hover:bg-primary px-4 rounded-lg">
                 <Link
                   className=" hover:text-blueGray-500 text-xs flex  py-3  block"
                   to="/auth/register"
                 >
-                  <i className="fas fa-clipboard-list text-blueGray-300 mr-2 text-sm"><Icon icon="vaadin:records" /></i>{" "}
+                  <i className="fas fa-clipboard-list  mr-2 text-sm"><Icon icon="bx:book" /></i>{" "}
                   
-                  Minor offense
-                </Link>
-              </li>
-            
-              <li className="items-center hover:bg-sky-100 px-4 rounded-lg">
-                <Link
-                  className="hover:text-blueGray-500 text-xs flex  py-3  block"
-                  to="/landing"
-                >
-                  <i className="fas fa-newspaper text-blueGray-400 mr-2 text-sm"><Icon icon="octicon:key-24" /></i>{" "}
-                  
-                  Permissions
+                 Report
                 </Link>
               </li>
 
-              <li className="items-center hover:bg-sky-100 px-4 rounded-lg ">
-                <Link
-                  className=" hover:text-blueGray-500 text-xs flex  py-3 block"
-                  to="/profile"
-                >
-                  <i className="fas fa-user-circle text-blueGray-400 mr-2 text-sm"> <Icon icon="mdi:bell-notification-outline" /></i>{" "}
-                 
-                  Notifications
-                </Link>
-              </li>
-              <li className="items-center hover:bg-sky-100 px-4 rounded-lg ">
-                <Link
-                  className=" hover:text-blueGray-500 text-xs  flex py-3 block"
-                  to="/profile"
-                >
-                  <i className="fas fa-user-circle text-blueGray-400 mr-2 text-sm"><Icon icon="ic:outline-calendar-today" /></i>{" "}
-                  
-                  Calendar
-                </Link>
-              </li>
+             
+              
             </ul>
 
           </div>

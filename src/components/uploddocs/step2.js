@@ -41,7 +41,7 @@ const Step2 = ({ onNext }) => {
 
 
 
-      <button onClick={handleNext} className="px-4  py-2 bg-primary text-white rounded">Upload</button>
+      <button onClick={handleNext} className="px-4 hover:bg-white hover:text-primary border border-primary py-2 bg-primary text-white rounded">Upload</button>
     </div>
     {selectedFile && (
         <p className="mt-2 items-center flex"><Icon icon="bi:file-earmark-pdf" /> {selectedFile.name}</p>
