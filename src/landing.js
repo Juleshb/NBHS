@@ -109,7 +109,7 @@ const LandingPage = () => {
                     <br></br>
                     <br></br>
                   <h1 className="text-white font-semibold text-3xl">
-                  Apply for Clinical Placement
+                  Apply for Clinical Placement on CHUB
                   </h1>
                   <p className="text-xl tracking-wider text-white p-6 font-light">To apply for internship there is same required Document you must fill before. Please Read all carefully before applying.</p>
                   <h1 className="text-white font-semibold mb-0 text-2xl underline underline-offset-8">
