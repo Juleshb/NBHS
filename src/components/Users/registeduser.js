@@ -1,6 +1,28 @@
 import StudetAction from "../../Dropdowns/studentDropdowns";
+import { useState,  useEffect, } from 'react';
 import { Icon } from '@iconify/react';
-export default function StudentsListe() {
+
+const UserTable = () => {
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://localhost:4600/DataCollection/API/users/getall');
+        const data = await response.json();
+
+        if (response.ok) {
+          setUsers(data.data || []);
+        } else {
+          console.error('Failed to fetch data:', data.message);
+        }
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
     return (
       <>
       <form className="flex flex-row flex-wrap items-center">
@@ -16,47 +38,46 @@ export default function StudentsListe() {
             </div>
           </form>
      <div className="overflow-x-auto">
-      <table className="min-w-full bg-white rounded-lg">
-        <thead className="bg-sky-100">
-          <tr>
-            <th className="px-6 py-3   text-left text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider">
-            ID No
-            </th>
-            <th className="px-6 py-3   text-left text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider">
-            Name
-            </th>
-            <th className="px-6 py-3   text-left text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider">
-            Provience
-            </th>
-            <th className="px-6 py-3   text-left text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider">
-            District
-            </th>
-            <th className="px-6 py-3   text-left text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider">
-             Action
-            </th>
+     <table className="min-w-full bg-white rounded-lg">
+      <thead className="bg-sky-100">
+        <tr>
+          <th className="px-6 py-3 text-left text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider">
+            First Name
+          </th>
+          <th className="px-6 py-3 text-left text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider">
+            Last Name
+          </th>
+          <th className="px-6 py-3 text-left text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider">
+            Email
+          </th>
+          <th className="px-6 py-3 text-left text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider">
+            Role
+          </th>
+          <th className="px-6 py-3 text-left text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider">
+            Health Centre
+          </th>
+          <th className="px-6 py-3 text-left text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider">
+            Action
+          </th>
+        </tr>
+      </thead>
+      <tbody className="text-xs">
+        {users.map((user) => (
+          <tr key={user.id} className="hover:bg-gray-100">
+            <td className="px-6 py-4 whitespace-no-wrap">{user.firstName}</td>
+            <td className="px-6 py-4 whitespace-no-wrap">{user.lastName}</td>
+            <td className="px-6 py-4 whitespace-no-wrap">{user.email}</td>
+            <td className="px-6 py-4 whitespace-no-wrap">{user.role}</td>
+            <td className="px-6 py-4 whitespace-no-wrap">{user.HealthCentre}</td>
+            <td className="px-6 py-4 whitespace-no-wrap">
+            <StudetAction userId={user.id} />
+            </td>
           </tr>
-        </thead>
-        <tbody className=" text-xs">
-          {/* Add your table rows here */}
-          <tr className="hover:bg-gray-100 ">
-            <td className="px-6 py-4 whitespace-no-wrap ">0020</td>
-            <td className="px-6 py-4 whitespace-no-wrap ">KIBIRIZI DH</td>
-            <td className="px-6 py-4 whitespace-no-wrap ">Western</td>
-            <td className="px-6 py-4 whitespace-no-wrap ">RUTSIRO</td>
-            <td className="px-6 py-4 whitespace-no-wrap "><StudetAction/></td>
-          </tr>
-          <tr className="hover:bg-gray-100 ">
-            <td className="px-6 py-4 whitespace-no-wrap ">0020</td>
-            <td className="px-6 py-4 whitespace-no-wrap ">KIBIRIZI DH</td>
-            <td className="px-6 py-4 whitespace-no-wrap ">Western</td>
-            <td className="px-6 py-4 whitespace-no-wrap ">RUTSIRO</td>
-            <td className="px-6 py-4 whitespace-no-wrap "><StudetAction/></td>
-          </tr>
-       
-          {/* Add more rows as needed */}
-        </tbody>
-      </table>
+        ))}
+      </tbody>
+    </table>
       </div>
     </>
     );
 }
+export default UserTable;

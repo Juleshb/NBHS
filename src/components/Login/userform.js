@@ -80,8 +80,8 @@ import { useState } from 'react';
 
       {/* Failure message */}
       {showFailureMessage && (
-        <div className="border-dotted px-4 py-3 border-2 border-sky-500 text-sm text-primary bg-red-100 text-center flex justify-between" >
-          <p>{errorMessage}</p>
+        <div className="border-dotted px-4 py-3 border-2 border-red-500 text-sm text-red-500 text-center flex justify-between" >
+          <p className='items-center flex'><i className='mr-2'><Icon icon="bx:error-alt" /></i>{errorMessage}</p>
           <button onClick={closeFailureMessage}><Icon icon="bytesize:close" /></button>
         </div>
       )}
