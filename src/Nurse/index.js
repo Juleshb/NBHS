@@ -1,7 +1,8 @@
 import Navbar from "../components/Nav/nav";
-import Sidebar from "../components/Sidebar/Sidebar";
 import { Icon } from "@iconify/react";
 import { Link } from "react-router-dom";
+import Sidebar from "../components/Sidebar/NurseSidebar";
+import { Route, Routes, Navigate } from 'react-router-dom';
 
 export default function Admin() {
   return (
@@ -13,7 +14,7 @@ export default function Admin() {
         <div className="relative md:pt-32 pb-32 pt-10"> 
       </div>
         <div className="px-4 md:px-10 mx-auto w-full -m-24">
-          
+
         <div className="flex flex-wrap">
               <div className="lg:pt-12 pt-6 w-full md:w-4/12 px-4 text-center ">
                 <div className="transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 duration-300 hover:text-white hover:bg-primary text-primary relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
@@ -69,6 +70,10 @@ By making any error your application will be Rejected</b> <br/>
                 </div>
               </div>
             </div>
+          
+          <Routes>
+            <Route path="*" element={<Navigate to="/nurses" />} />
+          </Routes>
          
         </div>
         

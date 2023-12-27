@@ -1,10 +1,22 @@
 import React from "react";
 import { createPopper } from "@popperjs/core";
-import logo from '../assets/user.png';
 import { Icon } from '@iconify/react';
 import { Link } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 const UserDropdown = () => {
+
+  //logout  
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    // Clear user authentication status
+    localStorage.removeItem('role'); // Remove the user role from localStorage
+
+    // Redirect to the login page after logout
+    navigate('/login');
+  };
+
   // dropdown props
   const [dropdownPopoverShow, setDropdownPopoverShow] = React.useState(false);
   const btnDropdownRef = React.createRef();
@@ -33,7 +45,7 @@ const UserDropdown = () => {
       </a>
       <Link
         className=" block"
-        to="/components/Login/login"
+        onClick={handleLogout}
         
       >
         <div className="items-center flex">
@@ -53,12 +65,8 @@ const UserDropdown = () => {
         }}
       >
         <div className="items-center flex">
-          <span className="w-8 h-8 text-sm text-white bg-blueGray-200 inline-flex items-center justify-center rounded-full">
-            <img
-              alt="..."
-              className="w-full rounded-full align-middle border-none shadow-lg"
-              src={logo}
-            />
+        <span className="w-12 h-12 text-2xl text-primary inline-flex items-center justify-center rounded-full">
+        <Icon icon="solar:user-outline" />
           </span>
         </div>
       </a>

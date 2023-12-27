@@ -45,11 +45,8 @@ export default function Navbar(props) {
                   Login
                 </Link>
               </li>
-            </ul>
-            <ul className="flex text-primary flex-col lg:flex-row list-none lg:ml-auto">
-              <li className="flex items-center">
-                
-              </li>
+           
+    
               <li className="flex items-center">
                 <a
                   className=" px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"

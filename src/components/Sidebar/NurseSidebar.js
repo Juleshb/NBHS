@@ -65,7 +65,7 @@ export default function Sidebar() {
            
             <ul className="md:flex-col text-base font-medium leading-normal md:min-w-full text-primary flex flex-col list-none">
             <li className={"font-semibold items-center transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 duration-300 hover:text-white hover:bg-primary px-4 rounded-lg " +
-                   (window.location.href.indexOf("/adimin") !== -1 
+                   (window.location.href.indexOf("/nurses") !== -1 
                      ? "transition ease-in-out delay-150  translate-y-1 scale-110 duration-300 text-white bg-primary"
                      : "")
                      }>
@@ -73,12 +73,12 @@ export default function Sidebar() {
                   className={
                     "text-xs flex  py-3 block " 
                   }
-                  to="/adimin"
+                  to="/nurses"
                 >
                   <i
                     className={
                       "fas fa-tv mr-2 text-sm " +
-                      (window.location.href.indexOf("/adimin") !== -1
+                      (window.location.href.indexOf("/nurses") !== -1
                         ? "opacity-75"
                         : "text-blueGray-300")
                     }
@@ -89,7 +89,7 @@ export default function Sidebar() {
               </li>
 
               <li className={"font-semibold items-center transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 duration-300 hover:text-white hover:bg-primary px-4 rounded-lg " +
-                   (window.location.href.indexOf("/healthcare") !== -1 
+                   (window.location.href.indexOf("/nurse/screaning") !== -1 
                      ? "transition ease-in-out delay-150  translate-y-1 scale-110 duration-300 text-white bg-primary"
                      : "")
                      }>
@@ -97,36 +97,12 @@ export default function Sidebar() {
                   className={
                     "text-xs flex  py-3 block " 
                   }
-                  to="/healthcare"
+                  to="/nurse/screaning"
                 >
                   <i
                     className={
                       "fas fa-tools mr-2 text-sm " +
-                      (window.location.href.indexOf("/healthcare") !== -1
-                        ? "opacity-75"
-                        : "text-blueGray-300")
-                    }
-                  ><Icon icon="tabler:hospital" /></i>{" "}
-                  
-                  Add health care
-                </Link>
-              </li>
-
-              <li className={"font-semibold items-center transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 duration-300 hover:text-white hover:bg-primary px-4 rounded-lg " +
-                   (window.location.href.indexOf("/admin/screaning") !== -1 
-                     ? "transition ease-in-out delay-150  translate-y-1 scale-110 duration-300 text-white bg-primary"
-                     : "")
-                     }>
-                <Link
-                  className={
-                    "text-xs flex  py-3 block " 
-                  }
-                  to="/admin/screaning"
-                >
-                  <i
-                    className={
-                      "fas fa-tools mr-2 text-sm " +
-                      (window.location.href.indexOf("/admin/screaning") !== -1
+                      (window.location.href.indexOf("/nurse/screaning") !== -1
                         ? "opacity-75"
                         : "text-blueGray-300")
                     }
@@ -136,86 +112,11 @@ export default function Sidebar() {
                 </Link>
               </li>
 
+              
+             
 
-              <li className="font-semibold items-center transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 duration-300 hover:text-white hover:bg-primary px-4 rounded-lg">
-                <Link
-                  className={
-                    "text-xs  flex py-3  block " +
-                    (window.location.href.indexOf("/admin/tables") !== -1
-                      ? "text-lightBlue-500 hover:text-lightBlue-600"
-                      : " hover:text-blueGray-500")
-                  }
-                  to="/admin/tables"
-                >
-                  <i
-                    className={
-                      "fas fa-table mr-2 text-sm " +
-                      (window.location.href.indexOf("/admin/tables") !== -1
-                        ? "opacity-75"
-                        : "text-blueGray-300")
-                    }
-                  ><Icon icon="healthicons:i-documents-accepted-outline" /></i>{" "}
-                  
-                 OAE Result
-                </Link>
-              </li>
-
-              <li className="font-semibold items-center transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 duration-300 hover:text-white hover:bg-primary px-4 rounded-lg">
-                <Link
-                  className={
-                    "text-xs flex py-3  block " +
-                    (window.location.href.indexOf("/admin/maps") !== -1
-                      ? "text-lightBlue-500 hover:text-lightBlue-600"
-                      : " hover:text-blueGray-500")
-                  }
-                  to="/admin/maps"
-                >
-                  <i
-                    className={
-                      "fas fa-map-marked mr-2 text-sm " +
-                      (window.location.href.indexOf("/admin/maps") !== -1
-                        ? "opacity-75"
-                        : "text-blueGray-300")
-                    }
-                  ><Icon icon="fluent:text-change-reject-20-regular" /></i>{" "}
-                  
-                  ABR Scale
-                </Link>
-              </li>
-              <li className={"font-semibold items-center transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 duration-300 hover:text-white hover:bg-primary px-4 rounded-lg " +
-                   (window.location.href.indexOf("/users") !== -1 
-                     ? "transition ease-in-out delay-150  translate-y-1 scale-110 duration-300 text-white bg-primary"
-                     : "")
-                     }>
-                <Link
-                  className={
-                    "text-xs flex  py-3 block " 
-                  }
-                  to="/users"
-                >
-                  <i
-                    className={
-                      "fas fa-tools mr-2 text-sm " +
-                      (window.location.href.indexOf("/users") !== -1
-                        ? "opacity-75"
-                        : "text-blueGray-300")
-                    }
-                  ><Icon icon="ph:users-three-thin" /></i>{" "}
-                  
-                  Users
-                </Link>
-              </li>
-
-              <li className=" font-semibold items-center transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 duration-300 hover:text-white hover:bg-primary px-4 rounded-lg">
-                <Link
-                  className=" hover:text-blueGray-500 text-xs flex  py-3  block"
-                  to="/auth/register"
-                >
-                  <i className="fas fa-clipboard-list  mr-2 text-sm"><Icon icon="bx:book" /></i>{" "}
-                  
-                 Report
-                </Link>
-              </li>
+              
+              
 
              
               

@@ -1,7 +1,7 @@
 import Navbar from "./components/Nav/landingNav";
 import { Icon } from "@iconify/react";
 import backgroundImage from "./assets/background.jpg"
-import Studentsform from "./components/Metron/Studentform";
+import Studentsform from "./components/Nurse/Studentform";
 import { Link } from "react-router-dom";
 
 const LandingPage = () => {

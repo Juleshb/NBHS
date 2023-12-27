@@ -1,44 +1,46 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import logo from '../../../src/assets/logo.png';
+import logo from '../../../src/assets/logo.png'; // Import your logo image path
 
-function Login() {
-  // Define state variables to store form input values
+const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate(); // Use useNavigate hook
 
-  // Define a function to handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // Create a request body with the user's email and password
-    const requestBody = {
-      email,
-      password,
+    // Simulating your login logic with API call
+    const loginData = {
+      email: email,
+      pin: password
     };
 
     try {
-      // Make a POST request to the API
-      const response = await fetch('http://127.0.0.1:5000/login', {
+      // Assuming a fetch call to your login API
+      const response = await fetch('http://localhost:4600/DataCollection/API/users/login', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/json'
         },
-        body: JSON.stringify(requestBody),
+        body: JSON.stringify(loginData)
       });
 
-      // Check if the response status is OK (200)
+      const data = await response.json();
+
       if (response.ok) {
-        // API call was successful, you can handle the success scenario here
-        // For example, you can redirect the user to another page or set a success message
-        console.log('Login successful');
-      } else {
-        // Handle error cases, e.g., show an error message to the user
-        console.error('Login failed');
+        const role = data.users.role; // Extract role from API response
+
+        localStorage.setItem('role', role);
+
+        if (role === 'admin') {
+          navigate('/adimin'); // Use navigate instead of history.push for redirection
+        } else if (role === 'nurse') {
+          navigate('/nurses'); // Use navigate instead of history.push for redirection
+        }
       }
     } catch (error) {
-      // Handle network errors or other exceptions
-      console.error('An error occurred', error);
+      console.error('Error:', error);
     }
   };
 
@@ -58,71 +60,69 @@ function Login() {
                     ></i>
                     <Link className="navbar-brand flex m-0" to="/studentpage">
                       <img src={logo} className="h-20" alt="main_logo" />
-                      <span className="ms-1 font-semibold text-primary ">
-                        <br></br> Clinical Placement
-                      </span>
+                      
                     </Link>
                   </div>
 
                   <div className="mt-4">
                     <h4 className="font-semibold text-xl text-primary">Sign In</h4>
-                    <p className="mb-2">Enter your Email-ID and password to sign in</p>
+                    <p className="mb-2">Enter your Username and Pin to sign in</p>
                   </div>
 
                   <div className="mt-4">
-                    <form role="form" onSubmit={handleSubmit}>
-                      <div className="mb-4">
-                        <input
-                          type="text"
-                          name="login_identifier"
-                          className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50"
-                          placeholder="Email-ID"
-                          aria-label="Username or Email"
-                          required
-                          value={email}
-                          onChange={(e) => setEmail(e.target.value)}
-                        />
-                      </div>
-                      <div className="mb-4">
-                        <input
-                          type="password"
-                          name="password"
-                          className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50"
-                          placeholder="Password"
-                          aria-label="Password"
-                          required
-                          value={password}
-                          onChange={(e) => setPassword(e.target.value)}
-                        />
-                      </div>
-                      <div className="mb-4">
-                        <label className="flex items-center">
-                          <input
-                            className="form-checkbox border-gray-300"
-                            type="checkbox"
-                            id="rememberMe"
-                            name="rememberMe"
-                          />
-                          <span className="ml-2">Remember me</span>
-                        </label>
-                      </div>
-                      <div className="text-center">
-                        <button
-                          type="submit"
-                          className="w-full px-4 py-3 bg-primary text-white rounded-lg hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary focus:ring-opacity-50"
-                        >
-                          Sign in
-                        </button>
-                      </div>
-                    </form>
+                  <form role="form" onSubmit={handleSubmit}>
+      <div className="mb-4">
+        <input
+          type="text"
+          name="login_identifier"
+          className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50"
+          placeholder="Username or Email"
+          aria-label="Username"
+          required
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+      </div>
+      <div className="mb-4">
+        <input
+          type="password"
+          name="password"
+          className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50"
+          placeholder="PIN"
+          aria-label="PIN"
+          required
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+      </div>
+      <div className="mb-4">
+        <label className="flex items-center">
+          <input
+            className="form-checkbox border-gray-300"
+            type="checkbox"
+            id="rememberMe"
+            name="rememberMe"
+          />
+          <span className="ml-2">Remember me</span>
+        </label>
+      </div>
+      <div className="text-center">
+        <button
+          type="submit"
+          className="w-full px-4 py-3 bg-primary text-white rounded-lg hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary focus:ring-opacity-50"
+        >
+          Sign in
+        </button>
+      </div>
+    </form>
                   </div>
 
                   <div className="mt-4 text-center">
                     <p className="text-sm">
                       Don&apos;t have an account?{' '}
-                      <a href="javascript:;" className="text-primary font-semibold">
-                        Request Account
-                      </a>
+                      <Link to="/register" className="text-primary font-semibold">
+                        Create Account
+                      </Link>
                     </p>
                   </div>
                 </div>
@@ -131,7 +131,7 @@ function Login() {
             <div className="hidden md:flex  grid w-full grid-cols-1 md:grid-cols-2 ">
               <div className=" text-center justify-center flex-col">
                 <div className="bg-gradient-to-br from-primary to-primary-light h-full m-3 p-7 rounded-lg flex flex-col justify-center overflow-hidden">
-                  <h4 className="text-white font-semibold">Welcome to Discipline CONNECT (DC)</h4>{' '}
+                  <h4 className="text-white font-semibold">Welcome to Newborn Hearing Loss and Genetic Screening in Rwanda (NHSR)</h4>{' '}
                   <br></br>
                   <p className="text-white">
                     This system will foster a more disciplined <br></br>and harmonious learning
@@ -145,7 +145,7 @@ function Login() {
         </section>
       </main>
     </>
-  );
-}
+ );
+};
 
 export default Login;
