@@ -1,6 +1,6 @@
 import Navbar from "../components/Nav/nav";
 import Sidebar from "../components/Sidebar/Sidebar";
-import UserView from "../components/Users/viewUser";
+import UserView from "../components/Users/userdetail";
 
 
 export default function viewuseradmin() {

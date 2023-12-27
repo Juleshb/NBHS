@@ -10,7 +10,12 @@ const UserView = () => {
     firstName: '',
     lastName: '',
     email: '',
-    pin: ''
+    pin: '',
+    type: '',
+    role: '',
+    HealthCentre: ''
+
+
   });
 
   const [dataLoaded, setDataLoaded] = useState(false);
@@ -27,7 +32,10 @@ const UserView = () => {
             firstName: userData.firstName || '',
             lastName: userData.lastName || '',
             email: userData.email || '',
-            pin: userData.pin || '' // Assuming pin exists in userData
+            pin: userData.pin || '',
+            type: userData.type || '',
+            role: userData.role || '',
+            HealthCentre: userData.HealthCentre || '' // Assuming pin exists in userData
           });
         setDataLoaded(true); // Set dataLoaded to true once data is fetched
       })
@@ -58,7 +66,7 @@ const UserView = () => {
 
     return (
       <>
- <section className="relative mt-20 pt-40 block py-24 lg:pt-0 bg-blueGray-800" id="register">
+ <section className="relative mt-20 pt-20 block py-24 lg:pt-0 bg-blueGray-800" id="register">
 
  <div className="container mx-auto px-4">
             <div className="flex flex-wrap justify-center lg:-mt-64 -mt-48">
@@ -100,6 +108,18 @@ const UserView = () => {
         <div className="col-span-1">
           <label htmlFor="pin" className="block text-sm font-medium text-gray-700">PIN</label>
           <input type="password" name="pin" id="pin" className="mt-1 p-2 rounded-md border border-gray-300 focus:outline-none focus:ring focus:ring-blue-200 focus:border-blue-500 block w-full" required value={userDetails.pin} onChange={handleChange} />
+        </div>
+        <div className="col-span-1">
+          <label htmlFor="type" className="block text-sm font-medium text-gray-700">Type</label>
+          <input type="text" name="type" id="type" className="mt-1 p-2 rounded-md border border-gray-300 focus:outline-none focus:ring focus:ring-blue-200 focus:border-blue-500 block w-full" required value={userDetails.type} onChange={handleChange} />
+        </div>
+        <div className="col-span-1">
+          <label htmlFor="role" className="block text-sm font-medium text-gray-700">role</label>
+          <input type="text" name="lrole" id="role" className="mt-1 p-2 rounded-md border border-gray-300 focus:outline-none focus:ring focus:ring-blue-200 focus:border-blue-500 block w-full" required value={userDetails.role} onChange={handleChange} />
+        </div>
+        <div className="col-span-1">
+          <label htmlFor="HealthCentre" className="block text-sm font-medium text-gray-700">Health Centre</label>
+          <input type="text" name="HealthCentre" id="HealthCentre" className="mt-1 p-2 rounded-md border border-gray-300 focus:outline-none focus:ring focus:ring-blue-200 focus:border-blue-500 block w-full" required value={userDetails.HealthCentre} onChange={handleChange} />
         </div>
       </div>
       <button type="submit" className="mt-4 px-4 py-3 bg-primary text-white rounded-lg hover:bg-white hover:text-primary border border-primary focus:outline-none focus:ring focus:ring-primary focus:ring-opacity-50 items-center flex">
