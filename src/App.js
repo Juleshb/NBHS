@@ -14,6 +14,7 @@ import AdminScreaning from './adimin/screaning'
 import User from './adimin/user'
 import Audiologiste from './Audiologiste'
 import Register from './components/Login/UserRegistForm'
+import Viewuseradmin from './adimin/viewuser';
 
 export default function App() {
   return (
@@ -45,6 +46,7 @@ export default function App() {
           <Route path="/admin/screaning" element={<AdminScreaning />} />
           <Route path="/adimin/sutudent" element ={<Students />} />
           <Route path="/users" element ={<User />} />
+          <Route path="/users/view/:userId" element ={<Viewuseradmin />} />
           
           <Route path="*" element={<Navigate to="/Login" />} />
         </Routes>

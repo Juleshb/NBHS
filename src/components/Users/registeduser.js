@@ -1,9 +1,17 @@
 import StudetAction from "../../Dropdowns/studentDropdowns";
 import { useState,  useEffect, } from 'react';
 import { Icon } from '@iconify/react';
+import { useNavigate } from 'react-router-dom';
 
 const UserTable = () => {
   const [users, setUsers] = useState([]);
+
+  const navigate = useNavigate();
+
+  const handleRowClick = (userId) => {
+    console.log('Clicked user ID:', userId);
+    navigate(`/users/view/${userId}`);
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -62,18 +70,19 @@ const UserTable = () => {
         </tr>
       </thead>
       <tbody className="text-xs">
-        {users.map((user) => (
-          <tr key={user.id} className="hover:bg-gray-100">
-            <td className="px-6 py-4 whitespace-no-wrap">{user.firstName}</td>
-            <td className="px-6 py-4 whitespace-no-wrap">{user.lastName}</td>
-            <td className="px-6 py-4 whitespace-no-wrap">{user.email}</td>
-            <td className="px-6 py-4 whitespace-no-wrap">{user.role}</td>
-            <td className="px-6 py-4 whitespace-no-wrap">{user.HealthCentre}</td>
-            <td className="px-6 py-4 whitespace-no-wrap">
-            <StudetAction userId={user.id} />
-            </td>
-          </tr>
-        ))}
+      {users.map((user) => (
+  <tr key={user.id} className="hover:bg-gray-100" onClick={() => handleRowClick(user.id)}>
+    <td className="px-6 py-4 whitespace-no-wrap">{user.firstName}</td>
+    <td className="px-6 py-4 whitespace-no-wrap">{user.lastName}</td>
+    <td className="px-6 py-4 whitespace-no-wrap">{user.email}</td>
+    <td className="px-6 py-4 whitespace-no-wrap">{user.role}</td>
+    <td className="px-6 py-4 whitespace-no-wrap">{user.HealthCentre}</td>
+    <td className="px-6 py-4 whitespace-no-wrap">
+      <StudetAction userId={user.id} />
+    </td>
+  </tr>
+))}
+
       </tbody>
     </table>
       </div>
