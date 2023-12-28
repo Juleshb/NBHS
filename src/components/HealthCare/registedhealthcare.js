@@ -1,6 +1,40 @@
 import StudetAction from "../../Dropdowns/studentDropdowns";
 import { Icon } from '@iconify/react';
-export default function StudentsListe() {
+import { useNavigate } from 'react-router-dom';
+import { useState,  useEffect, } from 'react';
+
+export default function HealthcenterListe() {
+
+
+  const [HealthCentres, setHealthCentres] = useState([]);
+
+  const navigate = useNavigate();
+
+  const handleRowClick = (HealthCentreId) => {
+    console.log('Clicked user ID:', HealthCentreId);
+    navigate(`/users/view/${HealthCentreId}`);
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://localhost:4600/DataCollection/API/healthcentre/getall');
+        const data = await response.json();
+
+        if (response.ok) {
+          setHealthCentres(data.data || []);
+        } else {
+          console.error('Failed to fetch data:', data.message);
+        }
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+
     return (
       <>
       <form className="flex flex-row flex-wrap items-center">
@@ -37,23 +71,17 @@ export default function StudentsListe() {
           </tr>
         </thead>
         <tbody className=" text-xs">
-          {/* Add your table rows here */}
-          <tr className="hover:bg-gray-100 ">
-            <td className="px-6 py-4 whitespace-no-wrap ">0020</td>
-            <td className="px-6 py-4 whitespace-no-wrap ">KIBIRIZI DH</td>
-            <td className="px-6 py-4 whitespace-no-wrap ">Western</td>
-            <td className="px-6 py-4 whitespace-no-wrap ">RUTSIRO</td>
-            <td className="px-6 py-4 whitespace-no-wrap "><StudetAction/></td>
-          </tr>
-          <tr className="hover:bg-gray-100 ">
-            <td className="px-6 py-4 whitespace-no-wrap ">0020</td>
-            <td className="px-6 py-4 whitespace-no-wrap ">KIBIRIZI DH</td>
-            <td className="px-6 py-4 whitespace-no-wrap ">Western</td>
-            <td className="px-6 py-4 whitespace-no-wrap ">RUTSIRO</td>
-            <td className="px-6 py-4 whitespace-no-wrap "><StudetAction/></td>
-          </tr>
-       
-          {/* Add more rows as needed */}
+        {HealthCentres.map((HealthCentre) => (
+  <tr key={HealthCentre.id} className="hover:bg-gray-100" onClick={() => handleRowClick(HealthCentre.id)}>
+    <td className="px-6 py-4 whitespace-no-wrap">{HealthCentre.HealthCentreCode}</td>
+    <td className="px-6 py-4 whitespace-no-wrap">{HealthCentre.name}</td>
+    <td className="px-6 py-4 whitespace-no-wrap">{HealthCentre.provence}</td>
+    <td className="px-6 py-4 whitespace-no-wrap">{HealthCentre.district}</td>
+    <td className="px-6 py-4 whitespace-no-wrap">
+      <StudetAction userId={HealthCentre.id} />
+    </td>
+  </tr>
+))}
         </tbody>
       </table>
       </div>

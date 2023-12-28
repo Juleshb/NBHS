@@ -108,7 +108,7 @@ export default function Sidebar() {
                     }
                   ><Icon icon="tabler:hospital" /></i>{" "}
                   
-                  Add health care
+                  Health Centers
                 </Link>
               </li>
 
