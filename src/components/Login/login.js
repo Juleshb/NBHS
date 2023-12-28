@@ -30,6 +30,9 @@ const Login = () => {
 
       if (response.ok) {
         const role = data.users.role; // Extract role from API response
+        const authToken = data.token;
+        
+        localStorage.setItem('authToken', authToken);
 
         localStorage.setItem('role', role);
 
