@@ -2,19 +2,14 @@ import React from "react";
 import { createPopper } from "@popperjs/core";
 import { Icon } from '@iconify/react';
 import { Link } from "react-router-dom";
-import { useNavigate } from 'react-router-dom';
 
 const UserDropdown = () => {
 
   //logout  
-  const navigate = useNavigate();
-
-  const handleLogout = () => {
+   const handleLogout = () => {
     // Clear user authentication status
     localStorage.removeItem('role'); // Remove the user role from localStorage
-
-    // Redirect to the login page after logout
-    navigate('/login');
+    localStorage.removeItem('authToken');
   };
 
   // dropdown props
@@ -46,6 +41,7 @@ const UserDropdown = () => {
       <Link
         className=" block"
         onClick={handleLogout}
+        to="/login"
         
       >
         <div className="items-center flex">

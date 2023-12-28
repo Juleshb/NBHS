@@ -7,6 +7,11 @@ export default function HealthCenter() {
     province: '',
     district: ''
   });
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+  const [showFailureMessage, setShowFailureMessage] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+  const [SuccessMessage, setSuccessMessage] = useState('');
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -38,23 +43,61 @@ export default function HealthCenter() {
 
       .then((response) => response.json())
       .then((data) => {
+       
         console.log('Success:', data);
-        // Handle success response from API
+        setShowSuccessMessage(true);
+        setShowFailureMessage(false);
+        setSuccessMessage(data.message || 'Health Center Registed!');
+        setFormData({
+          name: '',
+          province: '',
+          district: ''
+        });
       })
       .catch((error) => {
         console.error('Error:', error);
-        // Handle error from API
+        setShowFailureMessage(true);
+        setShowSuccessMessage(false);
+        setErrorMessage('Network error. Please try again.');
       });
 } else {
   // Handle case where authToken is not found in localStorage
   console.error('Auth token not found in localStorage');
+  setShowFailureMessage(true);
+  setShowSuccessMessage(false);
+  setErrorMessage('Onlt Admin can Perform this task');
 }
   }
+
+  const closeSuccessMessage = () => {
+    setShowSuccessMessage(false);
+  };
+
+  const closeFailureMessage = () => {
+    setShowFailureMessage(false);
+  };
+
     return (
       <>
       <div className="rounded-t  mb-0 px-6 py-6">
+
+                {/* Success message */}
+     {showSuccessMessage && (
+       <div className="border-dotted px-4 py-3 border-2 border-sky-500 text-sm text-primary bg-green-100 text-center flex justify-between" >
+          <p className='items-center flex'><i className='mr-2'><Icon icon="dashicons:saved" /></i>{SuccessMessage}</p>
+          <button onClick={closeSuccessMessage}><Icon icon="bytesize:close" /></button>
+        </div>
+      )}
+
+      {/* Failure message */}
+      {showFailureMessage && (
+        <div className="border-dotted px-4 py-3 border-2 border-red-500 text-sm text-red-500 text-center flex justify-between" >
+          <p className='items-center flex'><i className='mr-2'><Icon icon="bx:error-alt" /></i>{errorMessage}</p>
+          <button onClick={closeFailureMessage}><Icon icon="bytesize:close" /></button>
+        </div>
+      )}
           <div className="text-center flex justify-between">
-            <h4 className="text-lg font-bold text-primary">Regest new Health Care</h4>
+            <h4 className="text-lg font-bold text-primary">Regest new Health Center</h4>
           </div>
         </div>
         <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
