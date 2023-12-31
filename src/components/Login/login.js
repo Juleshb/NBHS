@@ -89,8 +89,8 @@ const Login = () => {
                       aria-hidden="true"
                       id="iconSidenav"
                     ></i>
-                    <Link className="navbar-brand flex m-0" to="/studentpage">
-                      <img src={logo} className="h-20" alt="main_logo" />
+                    <Link className="navbar-brand flex m-0" to="/landing">
+                      <img src={logo} className="h-14 w-21"  alt="main_logo" />
                       
                     </Link>
                   </div>

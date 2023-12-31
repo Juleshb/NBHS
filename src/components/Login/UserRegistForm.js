@@ -1,5 +1,5 @@
 import Userform from './userform';
-import Navbar from '../Nav/landingNav';
+import Navbar from '../Nav/landingnav2';
 export default function UserRegisterForm() {
     return (
       <>

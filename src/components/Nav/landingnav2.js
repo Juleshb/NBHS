@@ -11,7 +11,7 @@ function Navbar() {
                     <div className="flex items-center justify-between h-16">
                         <div className="flex-shrink-0">
                            
-                              <Link to={"/"} >
+                              <Link to={"/landing"} >
                               <img
                                 className="h-7 w-16"
                                  src={logo}
@@ -24,15 +24,15 @@ function Navbar() {
                             <div className="block sm:hidden xs:hidden">
                                 <div className="ml-10 flex items-baseline space-x-4">
 
-                                    <Link to={"/"} className=" hover:bg-white hover:text-primary text-white px-3 py-2 rounded-md text-base">
-                                        Home
-                                    </Link>
+                                    <a href="#register" className=" hover:bg-white hover:text-primary text-white px-3 py-2 rounded-md text-base">
+                                        Regist now
+                                    </a>
 
-                                    <Link to={"/Contact"} className=" hover:bg-white hover:text-primary  text-white px-3 py-2 rounded-md text-base">
+                                    <a href="#contactus" className=" hover:bg-white hover:text-primary  text-white px-3 py-2 rounded-md text-base">
                                         Contact
-                                    </Link>
+                                    </a>
 
-                                    <Link to={"/Signin"} className=" hover:bg-white hover:text-primary  text-white px-3 py-2 rounded-md text-base">
+                                    <Link to={"/Login"} className=" hover:bg-white hover:text-primary  text-white px-3 py-2 rounded-md text-base">
                                         SignIn
                                     </Link>
 

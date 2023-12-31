@@ -48,7 +48,7 @@ export default function App() {
           <Route path="/users" element ={<User />} />
           <Route path="/users/view/:userId" element ={<Viewuseradmin />} />
           
-          <Route path="*" element={<Navigate to="/Login" />} />
+          <Route path="*" element={<Navigate to="/landing" />} />
         </Routes>
       </BrowserRouter>
     </div>

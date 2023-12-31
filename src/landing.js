@@ -83,7 +83,7 @@ const LandingPage = () => {
                     </div>
                     <h6 className="text-base  font-semibold">Step 2: Login by using E-mail ID</h6>
                     <p className="mt-2 mb-4 ">
-                    Please login with your E-mail ID, and password that you either created when you completed the application or that you have been given.
+                    Please login with your E-mail ID, and PIN that you either created when you completed the application or that you have been given.
                     </p>
                     <p className="underline text-base mt-5">
                       <Link href="/1/clinical/doctors" title="Meet our doctors" to="/login" className="">
@@ -102,7 +102,7 @@ const LandingPage = () => {
                     </div>
                     <h6 className="text-base  font-semibold">Step 3</h6>
                     <p className="mt-2 mb-4 ">
-                    After login system will Guide you step by step
+                    After login system will Guide you step by step .
                     </p>
                   </div>
                 </div>
@@ -112,7 +112,7 @@ const LandingPage = () => {
           </div>
         </section>
   
-        <div className="relative pt-16 pb-32 flex content-center items-center justify-center min-h-screen-85">
+        <div className="relative pt-16 pb-32 flex content-center items-center justify-center min-h-screen-85" id="contactus">
           <div
            className="absolute top-18 w-full h-full bg-center bg-cover bg-fixed"
            style={{
@@ -125,39 +125,66 @@ const LandingPage = () => {
             ></span>
           </div>
 
-        <div className="container mx-auto p-4 flex flex-col md:flex-row">
-        <div className="md:w-1/2 mt-4 md:mt-0 md:pr-8">
-        <h2 className="text-2xl font-bold mb-4">Our Location</h2>
-        <label htmlFor="lastName" className="block text-sm font-medium text-gray-700"><Icon icon="codicon:location" /> Kigali,Rwanda</label>
-      </div>
-      <div className="md:w-1/2 md:pr-8">
-        <h2 className="text-2xl font-bold mb-4">Contact Us</h2>
-        <form >
+<div className="container relative mx-auto text-white ">
+            <div className="items-center flex flex-wrap">
+              <div className="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
+                <div className="">
+                    
+                  <h1 className="text-white mb-10 font-semibold text-3xl">
+                  Get in touch with us</h1>
+                  <div className="container mx-auto p-4 flex flex-col md:flex-row justify-between">
+
+                  <div className="md:w-1/2 mt-4 md:mt-0 md:pr-8 gap-4 justify-items-start">
+        
+        <div className="flex ml-5 mt-10">
+                <Icon icon="clarity:map-marker-line" width="30" />
+                  <h2 className="font-light ml-5  tracking-wide md:text-center xs:text-center ">Kigali, Rwanda</h2>
+                </div>
+                <div className="flex ml-5  mt-5">
+    
+    <Icon icon="clarity:email-line" width="30" />
+    
+      <h2 className="  font-light ml-5  tracking-wide md:text-center xs:text-center ">contact@phantom.com</h2>
+    </div>
+    <div className="flex ml-5 mt-5">
+      <Icon icon="fluent:call-24-regular" width="30" />
+      <h2 className=" ml-5  font-light tracking-wide md:text-center xs:text-center ">+250-788-888-887</h2>
+    </div>
+          </div>
+       
+                  <div className="md:w-1/2 md:pr-8">
+        
+                  <form >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         
         <div className="col-span-1">
-          <label htmlFor="lastName" className="block text-sm font-medium text-gray-700">Names</label>
+          <label htmlFor="lastName" className="block text-sm font-medium ">Names</label>
           <input type="text" name="lastName" id="lastName"  className="mt-1 p-2 rounded-md border border-gray-300 focus:outline-none focus:ring focus:ring-blue-200 focus:border-blue-500 block w-full" required />
         </div>
         <div className="col-span-1">
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
+          <label htmlFor="email" className="block text-sm font-medium ">Email</label>
           <input type="email" name="email" id="email"  className="mt-1 p-2 rounded-md border border-gray-300 focus:outline-none focus:ring focus:ring-blue-200 focus:border-blue-500 block w-full" required />
         </div>
         <div className="col-span-1">
-          <label htmlFor="pin" className="block text-sm font-medium text-gray-700">Message</label>
+          <label htmlFor="pin" className="block text-sm font-medium ">Message</label>
           <textarea  className="mt-1 p-2 rounded-md border border-gray-300 focus:outline-none focus:ring focus:ring-blue-200 focus:border-blue-500 block w-full" required />
         </div>
-        <div className="col-span-1">
-        <button type="submit" className="mt-4 px-4 py-3 bg-white text-primary rounded-lg hover:bg-white hover:text-primary border border-primary focus:outline-none focus:ring focus:ring-primary focus:ring-opacity-50 items-center flex">
+        
+        <button type="submit" className="mt-4 px-4 py-3 bg-white text-primary rounded-lg hover:bg-primary hover:opacity-50 hover:text-white border hover:border-white border-primary focus:outline-none focus:ring focus:ring-primary focus:ring-opacity-50 items-center text-center flex">
       <i className='mr-2'><Icon icon="grommet-icons:send" /></i> Submit
       </button>
-          </div>
+          
       </div>
       
     </form>
-      </div>
-     
     </div>
+   
+    </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
 
     </div>
 
