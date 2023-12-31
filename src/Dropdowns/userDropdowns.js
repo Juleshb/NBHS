@@ -5,11 +5,15 @@ import { Link } from "react-router-dom";
 
 const UserDropdown = () => {
 
+  const lastName = localStorage.getItem('lastName');
+  const role = localStorage.getItem('role');
+
   //logout  
    const handleLogout = () => {
     // Clear user authentication status
     localStorage.removeItem('role'); // Remove the user role from localStorage
     localStorage.removeItem('authToken');
+    localStorage.removeItem('lastName');
   };
 
   // dropdown props
@@ -80,8 +84,9 @@ const UserDropdown = () => {
           }
           onClick={(e) => e.preventDefault()}
         >
-          Action
+          {lastName}
         </a>
+
         <a
           href="#pablo"
           className={
@@ -89,27 +94,12 @@ const UserDropdown = () => {
           }
           onClick={(e) => e.preventDefault()}
         >
-          Another action
+          {role}
         </a>
-        <a
-          href="#pablo"
-          className={
-            "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
-          }
-          onClick={(e) => e.preventDefault()}
-        >
-          Something else here
-        </a>
-        <div className="h-0 my-2 border border-solid border-blueGray-100" />
-        <a
-          href="#pablo"
-          className={
-            "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
-          }
-          onClick={(e) => e.preventDefault()}
-        >
-          Seprated link
-        </a>
+       
+       
+       
+        
       </div>
     </>
   );

@@ -1,6 +1,6 @@
 /*eslint-disable*/
 import React from "react";
-import logo from '../../../src/assets/logo.png'
+import logo from '../../../src/assets/log2.png'
 import { Icon } from '@iconify/react';
 import { Link } from "react-router-dom";
 // components
@@ -10,7 +10,7 @@ export default function Navbar(props) {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
   return (
     <>
-      <nav className="top-0 fixed z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg bg-white shadow">
+      <nav className="top-0 fixed z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg bg-primary shadow">
         <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
           <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
           <div className="relative">
@@ -21,7 +21,7 @@ export default function Navbar(props) {
                   </a>
               </div>
             <button
-              className="cursor-pointer text-primary text-3xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
+              className="cursor-pointer text-white text-3xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
               type="button"
               onClick={() => setNavbarOpen(!navbarOpen)}
             >

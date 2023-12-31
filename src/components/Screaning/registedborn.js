@@ -1,6 +1,46 @@
 import StudetAction from "../../Dropdowns/studentDropdowns";
 import { Icon } from '@iconify/react';
-export default function StudentsListe() {
+import { useNavigate } from 'react-router-dom';
+import { useState,  useEffect, } from 'react';
+
+export default function Registedborn() {
+  const [NewBorns, setNewBorns] = useState([]);
+
+  const navigate = useNavigate();
+
+  const handleRowClick = (NewBornId) => {
+    console.log('Clicked user ID:', NewBornId);
+    navigate(`/users/view/${NewBornId}`);
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const authToken = localStorage.getItem('authToken');
+        
+        const response = await fetch('http://localhost:4600/DataCollection/API/newBorns/getAll', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            // Include authorization token if required
+            'Authorization': `Bearer ${authToken}` // Include the token in the Authorization header
+          },
+        });
+        const data = await response.json();
+
+        if (response.ok) {
+          setNewBorns(data.data || []);
+        } else {
+          console.error('Failed to fetch data:', data.message);
+        }
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
     return (
       <>
       <form className="flex flex-row flex-wrap items-center">
@@ -37,23 +77,17 @@ export default function StudentsListe() {
           </tr>
         </thead>
         <tbody className=" text-xs">
-          {/* Add your table rows here */}
-          <tr className="hover:bg-gray-100 ">
-            <td className="px-6 py-4 whitespace-no-wrap ">01201232001</td>
-            <td className="px-6 py-4 whitespace-no-wrap ">KAREKEZI Isac</td>
-            <td className="px-6 py-4 whitespace-no-wrap ">NYIRARUKUNDO Vannessa</td>
-            <td className="px-6 py-4 whitespace-no-wrap ">+250789029293</td>
-            <td className="px-6 py-4 whitespace-no-wrap "><StudetAction/></td>
-          </tr>
-          <tr className="hover:bg-gray-100 ">
-            <td className="px-6 py-4 whitespace-no-wrap ">01201232002</td>
-            <td className="px-6 py-4 whitespace-no-wrap ">HABAKUBAHO Aime</td>
-            <td className="px-6 py-4 whitespace-no-wrap ">NIYOMURENGEZI Dativa</td>
-            <td className="px-6 py-4 whitespace-no-wrap ">+250789029293</td>
-            <td className="px-6 py-4 whitespace-no-wrap "><StudetAction/></td>
-          </tr>
-       
-          {/* Add more rows as needed */}
+        {NewBorns.map((NewBorn) => (
+  <tr key={NewBorn.id} className="hover:bg-gray-100" onClick={() => handleRowClick(NewBorn.id)}>
+    <td className="px-6 py-4 whitespace-no-wrap">{NewBorn.generatedCode}</td>
+    <td className="px-6 py-4 whitespace-no-wrap">{NewBorn.fatherName}</td>
+    <td className="px-6 py-4 whitespace-no-wrap">{NewBorn.motherName}</td>
+    <td className="px-6 py-4 whitespace-no-wrap">{NewBorn.phoneContact}</td>
+    <td className="px-6 py-4 whitespace-no-wrap">
+      <StudetAction userId={NewBorn.id} />
+    </td>
+  </tr>
+))}
         </tbody>
       </table>
       </div>

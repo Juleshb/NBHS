@@ -1,90 +1,13 @@
-import Navbar from "./components/Nav/landingNav";
+import Navbar from "./components/Nav/landingnav2";
 import { Icon } from "@iconify/react";
-import backgroundImage from "./assets/background.jpg"
-import Studentsform from "./components/Nurse/Studentform";
+import backgroundImage from "./assets/bg.jpg"
+import backgroundImage2 from "./assets/nini.jpg"
+import Studentsform from "./components/Login/userform";
 import { Link } from "react-router-dom";
+import Footer from "./components/Footer";
 
 const LandingPage = () => {
 
-    const documentList = [
-        {
-          title: "Application letter addressed to the Director General of the hospital",
-          description: "Must be PDF of file type and not more than 2MB of file size.",
-        },
-        {
-          title: "Copy of Passport/National ID",
-          description: "Must be PDF of file type and not more than 2MB of file size.",
-        },
-        {
-          title: "Recommendation letter signed by the Dean/Leadership of University/Institution",
-          description: "Must be PDF of file type and not more than 2MB of file size.",
-        },
-        {
-          title: "The copy of the Student’s University enrollment card",
-          description: "Must be PDF of file type and not more than 2MB of file size.",
-        },
-        {
-          title: "The valid certificate of registration",
-          description: "Must be PDF of file type and not more than 2MB of file size.",
-        },
-        {
-          title: "The valid criminal history record screening certificate",
-          description: "Must be PDF of file type and not more than 2MB of file size.",
-        },
-        {
-          title: "The valid medical certificate",
-          description: "This is a certificate from a doctor confirming the state of someone's health. Must be PDF of file type and not more than 2MB of file size.",
-        },
-        {
-          title: "The valid vaccination certificate for hepatitis B",
-          description: "Must be PDF of file type and not more than 2MB of file size.",
-        },
-        {
-          title: "Proof of negative test of Covid 19",
-          description: "Must be PDF of file type and not more than 2MB of file size.",
-        },
-        {
-          title: "Proof of negative test of Covid 19 taken within 72 hours prior to the starting date",
-          description: "Must be PDF of file type and not more than 2MB of file size.",
-        },
-        {
-          title: "The payment slip for the placement fee",
-          description: "An administrative fee of $150 per month shall be paid after final approval of the application to foreigners and 40000RWF per month to the Rwandans, East African community, and DR Students, on the hospital account No 1000001364 from National Bank of Rwanda (BNR). Must be PDF of file type and not more than 2MB of file size.",
-        },
-        {
-          title: "Personal health insurance coverage during the study period",
-          description: "Must be PDF of file type and not more than 2MB of file size.",
-        },
-        {
-          title: "Clear goals for experiences and Objectives of placement (why and what do you want to study here)",
-          description: "Must be PDF of file type and not more than 2MB of file size.",
-        },
-        {
-          title: "CV",
-          description: "Must be PDF of file type and not more than 2MB of file size.",
-        },
-      ];
-
-
-      const generalItems = [
-        "Clinical coat or scrub uniform",
-        "Stethoscope",
-        "Reflex hammers",
-        "Examination torch",
-        "Measuring tapes",
-        "Goniometer",
-        "Notebook for taking notes",
-        "A hand sanitizer (Alcohol gel) and lotions as necessary",
-      ];
-    
-      const nursingItems = [
-        "An otoscope",
-        "A Digital Thermometer",
-        "A portable sphygmomanometer",
-        "An Oxygen Saturometer",
-        "A Stopwatch",
-        "Other items as may be necessary according to the discipline and or the specific placement",
-      ];
 
   return (
 <>
@@ -92,14 +15,14 @@ const LandingPage = () => {
     <main>
         <div className="relative pt-16 pb-32 flex content-center items-center justify-center min-h-screen-85">
           <div
-            className="absolute top-10 w-full h-full bg-center bg-cover"
-            style={{
-                backgroundImage: `url(${backgroundImage})`,
-            }}
+           className="absolute top-18 w-full h-full bg-center bg-cover bg-fixed"
+           style={{
+             backgroundImage: `url(${backgroundImage})`,
+           }}
           >
             <span
               id="blackOverlay"
-              className="w-full h-full absolute opacity-75 bg-black"
+              className="w-full h-full absolute opacity-75 bg-primary"
             ></span>
           </div>
           <div className="container relative mx-auto">
@@ -109,9 +32,16 @@ const LandingPage = () => {
                     <br></br>
                     <br></br>
                   <h1 className="text-white font-semibold text-3xl">
-                  Apply for Clinical Placement on CHUB
+                  Welcome to Newborn Hearing Loss and Genetic Screening in Rwanda (NHSR)
                   </h1>
-                  <p className="text-xl tracking-wider text-white p-6 font-light">To apply for internship there is same required Document you must fill before. Please Read all carefully before applying.</p>
+                  <p className="text-base tracking-wider text-white p-6 font-light"> The NBHS Research project in Rwanda is dedicated <br></br>
+                   to advancing newborn hearing screening by implementing 
+                   a robust model for the early detection of hearing 
+                   impairments in newborns. Concurrently, the project 
+                   aims to delve into genetic assessments to identify 
+                   genetic patterns associated with newborn hearing loss. 
+                   This collaborative effort seeks to ensure timely 
+                   interventions and support for affected infants in Rwanda.</p>
                   <h1 className="text-white font-semibold mb-0 text-2xl underline underline-offset-8">
                  
                   </h1>
@@ -179,91 +109,61 @@ const LandingPage = () => {
               </div>
             </div>
 
-            <div className="flex flex-wrap mb-0 mt-32 justify-center text-center ">
-              <div className="w-full lg:w-6/12 ">
-                <h2 className="text-xl font-semibold text-primary">Clinical Placement Requirement at CHUB</h2>
-              </div>
-            </div>
-            
-            <div className="flex flex-wrap mt-10 ">
-              <div className="w-full md:w-5/12 px-4 mb-5 mr-auto ml-auto  shadow-lg rounded-lg">
-                <div className="flex flex-wrap  ">
-                <div className="text-primary mr-2 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-white">
-                <Icon icon="pajamas:requirements" />
-                </div>
-                <h3 className="text-base text-primary mb-2 font-semibold  leading-normal">
-                <br></br>
-                ADMINISTRATIVE REQUIREMENTS
-                </h3>
-                </div>
-                <ul className="list-decimal ml-6">
-          {documentList.map((document, index) => (
-            <li key={index} className="text-lg mb-2">
-              <span className="mt-4 mb-2  ">{document.title}</span>
-              <br />
-              <span className="mt-4 mb-2 text-primary ">{document.description}</span>
-              
-            </li>
-          ))}
-        </ul>
-               
-              </div>
+          </div>
+        </section>
+  
+        <div className="relative pt-16 pb-32 flex content-center items-center justify-center min-h-screen-85">
+          <div
+           className="absolute top-18 w-full h-full bg-center bg-cover bg-fixed"
+           style={{
+             backgroundImage: `url(${backgroundImage2})`,
+           }}
+          >
+            <span
+              id="blackOverlay"
+              className="w-full h-full absolute opacity-75 bg-primary"
+            ></span>
+          </div>
 
-              <div className="w-full md:w-5/12 px-4 mr-auto ml-auto shadow-lg rounded-lg">
-              <div className="flex flex-wrap   ">
-                <div className="text-primary mr-2 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-white">
-                <Icon icon="clarity:first-aid-kit-line" />
-                </div>
-                <h3 className="text-base mb-2 text-primary font-semibold  leading-normal"><br></br>
-                THE STUDENT’S PRACTICAL KIT
-                </h3>
-                </div>
-                <p className="mb-2">A. General Items:</p>
-        <ul className="list-disc ml-6">
-          {generalItems.map((item, index) => (
-            <li key={index} className="text-lg">{item}</li>
-          ))}
-        </ul>
+        <div className="container mx-auto p-4 flex flex-col md:flex-row">
+        <div className="md:w-1/2 mt-4 md:mt-0 md:pr-8">
+        <h2 className="text-2xl font-bold mb-4">Our Location</h2>
+        <label htmlFor="lastName" className="block text-sm font-medium text-gray-700"><Icon icon="codicon:location" /> Kigali,Rwanda</label>
+      </div>
+      <div className="md:w-1/2 md:pr-8">
+        <h2 className="text-2xl font-bold mb-4">Contact Us</h2>
+        <form >
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         
-        <p className="mt-4 mb-2">B. Specific for Nursing Students:</p>
-        <ul className="list-disc ml-6">
-          {nursingItems.map((item, index) => (
-            <li key={index} className="text-lg">{item}</li>
-          ))}
-        </ul>
-
-        <p className="mt-4">Notice: The high learning institution is requested to bring materials according to the hospital policy.</p>
-               
-               
-              </div>
-
-            </div>
+        <div className="col-span-1">
+          <label htmlFor="lastName" className="block text-sm font-medium text-gray-700">Names</label>
+          <input type="text" name="lastName" id="lastName"  className="mt-1 p-2 rounded-md border border-gray-300 focus:outline-none focus:ring focus:ring-blue-200 focus:border-blue-500 block w-full" required />
+        </div>
+        <div className="col-span-1">
+          <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
+          <input type="email" name="email" id="email"  className="mt-1 p-2 rounded-md border border-gray-300 focus:outline-none focus:ring focus:ring-blue-200 focus:border-blue-500 block w-full" required />
+        </div>
+        <div className="col-span-1">
+          <label htmlFor="pin" className="block text-sm font-medium text-gray-700">Message</label>
+          <textarea  className="mt-1 p-2 rounded-md border border-gray-300 focus:outline-none focus:ring focus:ring-blue-200 focus:border-blue-500 block w-full" required />
+        </div>
+        <div className="col-span-1">
+        <button type="submit" className="mt-4 px-4 py-3 bg-white text-primary rounded-lg hover:bg-white hover:text-primary border border-primary focus:outline-none focus:ring focus:ring-primary focus:ring-opacity-50 items-center flex">
+      <i className='mr-2'><Icon icon="grommet-icons:send" /></i> Submit
+      </button>
           </div>
-        </section>
-
-        <section className="relative py-20">
-         
-          <div className="container mx-auto px-4">
-            <div className="items-center flex flex-wrap ">
-              
-              <div className="w-full md:w-5/12 text-white bg-primary ml-auto mr-auto px-4 border border-primary shadow-lg rounded-lg p-5">
-                <div className="md:pr-12">
-                  <div className="border border-white text-5xl p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full">
-                  <Icon icon="ic:outline-local-police" />
-                  </div>
-                  
-                  <p className="mt-4 text-lg leading-relaxed">
-                  Admission requirements: refer to the policy no 354/2016 on clinical placement:
-                  </p>
-                 
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
+      </div>
       
-        <section className="relative mt-20 block py-24 lg:pt-0 bg-blueGray-800" id="register">
+    </form>
+      </div>
+     
+    </div>
+
+    </div>
+
+       
+      
+        <section className="relative mt-20 block lg:pt-0 bg-blueGray-800" id="register">
           <div className="container mx-auto px-4">
             <div className="flex flex-wrap justify-center lg:-mt-64 -mt-48">
               <div className="w-full lg:w-6/12 px-4">
@@ -279,6 +179,7 @@ const LandingPage = () => {
           </div>
         </section>
       </main>
+      <Footer/>
     </>
   );
 };

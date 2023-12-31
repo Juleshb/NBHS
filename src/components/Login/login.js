@@ -1,12 +1,18 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { Icon } from '@iconify/react';
 import logo from '../../../src/assets/logo.png'; // Import your logo image path
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate(); // Use useNavigate hook
+
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+  const [showFailureMessage, setShowFailureMessage] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+  const [SuccessMessage, setSuccessMessage] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -31,10 +37,16 @@ const Login = () => {
       if (response.ok) {
         const role = data.users.role; // Extract role from API response
         const authToken = data.token;
+        const lastName = data.email;
         
         localStorage.setItem('authToken', authToken);
 
         localStorage.setItem('role', role);
+        localStorage.setItem('lastName', lastName);
+
+        setShowSuccessMessage(true);
+        setShowFailureMessage(false);
+        setSuccessMessage(data.message || 'You have logedin!');
 
         if (role === 'admin') {
           navigate('/adimin'); // Use navigate instead of history.push for redirection
@@ -42,11 +54,27 @@ const Login = () => {
           navigate('/nurses'); // Use navigate instead of history.push for redirection
         }
       }
+      else {
+        // Handle error response from API
+        console.error('Failed to login:', response.statusText);
+        setShowFailureMessage(true);
+        setShowSuccessMessage(false);
+        setErrorMessage(data.message || 'Failed to Login');
+      }
     } catch (error) {
       console.error('Error:', error);
+      setShowFailureMessage(true);
+        setShowSuccessMessage(false);
+        setErrorMessage('Form submission error:', error);
     }
   };
+  const closeSuccessMessage = () => {
+    setShowSuccessMessage(false);
+  };
 
+  const closeFailureMessage = () => {
+    setShowFailureMessage(false);
+  };
   return (
     <>
       <main className="relative flex justify-center items-center h-screen">
@@ -71,7 +99,21 @@ const Login = () => {
                     <h4 className="font-semibold text-xl text-primary">Sign In</h4>
                     <p className="mb-2">Enter your Username and Pin to sign in</p>
                   </div>
+     {/* Success message */}
+     {showSuccessMessage && (
+       <div className="border-dotted px-4 py-3 border-2 border-sky-500 text-sm text-primary bg-green-100 text-center flex justify-between" >
+          <p className='items-center flex'><i className='mr-2'><Icon icon="dashicons:saved" /></i>{SuccessMessage}</p>
+          <button onClick={closeSuccessMessage}><Icon icon="bytesize:close" /></button>
+        </div>
+      )}
 
+      {/* Failure message */}
+      {showFailureMessage && (
+        <div className="border-dotted px-4 py-3 border-2 border-red-500 text-sm text-red-500 text-center flex justify-between" >
+          <p className='items-center flex'><i className='mr-2'><Icon icon="bx:error-alt" /></i>{errorMessage}</p>
+          <button onClick={closeFailureMessage}><Icon icon="bytesize:close" /></button>
+        </div>
+      )}
                   <div className="mt-4">
                   <form role="form" onSubmit={handleSubmit}>
       <div className="mb-4">
@@ -137,9 +179,14 @@ const Login = () => {
                   <h4 className="text-white font-semibold">Welcome to Newborn Hearing Loss and Genetic Screening in Rwanda (NHSR)</h4>{' '}
                   <br></br>
                   <p className="text-white">
-                    This system will foster a more disciplined <br></br>and harmonious learning
-                    environment, promoting the overall development and academic success of
-                    students.
+                  The NBHS Research project in Rwanda is dedicated <br></br>
+                   to advancing newborn hearing screening by implementing <br></br>
+                   a robust model for the early detection of hearing <br></br>
+                   impairments in newborns. Concurrently, the project <br></br>
+                   aims to delve into genetic assessments to identify <br></br>
+                   genetic patterns associated with newborn hearing loss. <br></br>
+                   This collaborative effort seeks to ensure timely <br></br>
+                   interventions and support for affected infants in Rwanda.<br></br>
                   </p>
                 </div>
               </div>

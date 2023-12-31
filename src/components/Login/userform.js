@@ -63,7 +63,7 @@ import { useState } from 'react';
     };
     return (
       <>
- <section className="relative mt-20 pt-40 block py-24 lg:pt-0 bg-blueGray-800" id="register">
+ <section className="relative mt-20 pt-40 block lg:pt-0 bg-blueGray-800" id="register">
 
  <div className="container mx-auto px-4">
             <div className="flex flex-wrap justify-center lg:-mt-64 -mt-48">
@@ -85,7 +85,7 @@ import { useState } from 'react';
           <button onClick={closeFailureMessage}><Icon icon="bytesize:close" /></button>
         </div>
       )}
-        <div className="rounded-t  mb-0 px-6 py-6">
+        <div className="rounded-t  mb-0 px-4 py-6">
           <div className="text-center flex justify-between">
             <h4 className="text-lg font-bold text-primary">Create Account</h4>
           </div>
