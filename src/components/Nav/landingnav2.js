@@ -24,7 +24,7 @@ function Navbar() {
                             <div className="block sm:hidden xs:hidden">
                                 <div className="ml-10 flex items-baseline space-x-4">
 
-                                    <a href="#register" className=" hover:bg-white hover:text-primary text-white px-3 py-2 rounded-md text-base">
+                                    <a href="#register" className=" hover:bg-white border border-white hover:text-primary text-white px-3 py-2 rounded-md text-base">
                                         Regist now
                                     </a>
 
@@ -102,11 +102,15 @@ function Navbar() {
                             <div ref={ref} className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
 
 
-                                    <Link to={"/Contact"} className="hover:bg-white hover:text-primary text-white px-3 py-2 rounded-md text-base block">
-                                        Contact
-                                    </Link>
+                                    <a  href="#register" className="hover:bg-white border border-white hover:text-primary text-white px-3 py-2 rounded-md text-base block">
+                                    Regist now
+                                    </a>
 
-                                    <Link to={"/Signin"} className="hover:bg-white hover:text-primary text-white px-3 py-2 rounded-md text-base block">
+                                    <a  href="#contactus" className="hover:bg-white hover:text-primary text-white px-3 py-2 rounded-md text-base block">
+                                        Contact
+                                    </a>
+
+                                    <Link to={"/Login"} className="hover:bg-white hover:text-primary text-white px-3 py-2 rounded-md text-base block">
                                         SignIn
                                     </Link>
 
