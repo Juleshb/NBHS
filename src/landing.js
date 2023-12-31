@@ -191,19 +191,11 @@ const LandingPage = () => {
        
       
         <section className="relative mt-20 block lg:pt-0 bg-blueGray-800" id="register">
-          <div className="container mx-auto px-4">
-            <div className="flex flex-wrap justify-center lg:-mt-64 -mt-48">
-              <div className="w-full lg:w-6/12 px-4">
-                <div className="relative flex flex-col min-w-0 break-words w-full mb-6 ">
-                  <div className="flex-auto p-5 lg:p-10">
+         
 
                     <Studentsform/>
 
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+           
         </section>
       </main>
       <Footer/>
