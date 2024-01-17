@@ -97,7 +97,7 @@ const Login = () => {
 
                   <div className="mt-4">
                     <h4 className="font-semibold text-xl text-primary">Sign In</h4>
-                    <p className="mb-2">Enter your Username and Pin to sign in</p>
+                    <p className="mb-2">Enter your Username and Pin </p>
                   </div>
      {/* Success message */}
      {showSuccessMessage && (
