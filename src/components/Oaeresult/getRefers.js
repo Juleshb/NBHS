@@ -10,7 +10,7 @@ export default function Registedborn() {
 
   const handleRowClick = (NewBornId) => {
     console.log('Clicked user ID:', NewBornId);
-    navigate(`/born/view/${NewBornId}`);
+    navigate(`/users/view/${NewBornId}`);
   };
 
   useEffect(() => {
@@ -18,7 +18,7 @@ export default function Registedborn() {
       try {
         const authToken = localStorage.getItem('authToken');
         
-        const response = await fetch('http://localhost:4600/DataCollection/API/newBorns/getAll', {
+        const response = await fetch('http://localhost:4600/DataCollection/API/newBorns/getRefers', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',

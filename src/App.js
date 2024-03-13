@@ -13,8 +13,11 @@ import NurseScreaning from './Nurse/screaning'
 import AdminScreaning from './adimin/screaning'
 import User from './adimin/user'
 import Audiologiste from './Audiologiste'
+import Audioscreaning from './Audiologiste/screaning';
+import Oaeresult from './Audiologiste/oaeresult';
 import Register from './components/Login/UserRegistForm'
 import Viewuseradmin from './adimin/viewuser';
+import Viewsinglebon from './adimin/uppdateborn';
 
 export default function App() {
   return (
@@ -38,6 +41,8 @@ export default function App() {
           {/*Audiologiste*/}
 
           <Route path="/audiologiste" element={<Audiologiste/>} />
+          <Route path="/audiologist/screaning" element={<Audioscreaning/>} />
+          <Route path="/oaeresult" element={<Oaeresult/>} />
 
           {/* Adimins */}
 
@@ -47,6 +52,7 @@ export default function App() {
           <Route path="/adimin/sutudent" element ={<Students />} />
           <Route path="/users" element ={<User />} />
           <Route path="/users/view/:userId" element ={<Viewuseradmin />} />
+          <Route path="/born/view/:userId" element ={<Viewsinglebon />} />
           
           <Route path="*" element={<Navigate to="/landing" />} />
         </Routes>

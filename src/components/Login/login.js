@@ -52,6 +52,8 @@ const Login = () => {
           navigate('/adimin'); // Use navigate instead of history.push for redirection
         } else if (role === 'nurse') {
           navigate('/nurses'); // Use navigate instead of history.push for redirection
+        }else if(role === 'ideologist'){
+          navigate('/audiologiste')
         }
       }
       else {

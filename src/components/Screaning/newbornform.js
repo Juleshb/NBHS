@@ -264,23 +264,7 @@ export default function Newborn() {
                     <option>Rwamagana</option>
                   </select>
                 </div>
-                {/* <div className="col-span-1">
-                  <label htmlFor="Province" className="block text-sm font-medium text-gray-700">Hospital of origin</label>
-                  <select 
-                   value={formValues.mothername}
-                   onChange={handleChange}
-                  className="mt-1 p-2 rounded-md border border-gray-300 focus:outline-none focus:ring focus:ring-blue-200 focus:border-blue-500 block w-full" id="Province" name="Province" required>
-                    <option></option>
-                    <option>Rwanda Military Hospital</option>
-                    <option>King Faisal Hospital</option>
-                    <option>Kabgayi Teaching Hospital</option>
-                    <option>Ruhengeri Referral Hospital</option>
-                    <option>Masaka DH</option>
-                    <option>Kabutare DH</option>
-                    <option>Muhima DH</option>
-                    <option>Rwamagana DH</option>
-                  </select>
-                </div> */}
+                
 
                 <div className="col-span-1">
                   <label htmlFor="Date of Birth" className="block text-sm font-medium text-gray-700">Date of Birth</label>
