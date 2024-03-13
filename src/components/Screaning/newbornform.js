@@ -23,7 +23,7 @@ export default function Newborn() {
     newbornPositionInTheFamily: '',
     presenceOfEarDysmorphism: '',
     historyOfHearingLossAmongFamilyMembers: '',
-    ABRScale: '',
+    OAEResult: '',
     // Add state variables for the rest of the form fields based on the provided form
   });
 
@@ -63,7 +63,7 @@ export default function Newborn() {
       newbornPositionInTheFamily: formValues.newbornPositionInTheFamily,
       presenceOfEarDysmorphism: formValues.presenceOfEarDysmorphism,
       historyOfHearingLossAmongFamilyMembers: formValues.historyOfHearingLossAmongFamilyMembers,
-      ABRScale: formValues.ABRScale,
+      OAEResult: formValues.OAEResult,
 
       // Add the rest of the form fields here based on the provided API request
     };
@@ -108,7 +108,7 @@ export default function Newborn() {
     newbornPositionInTheFamily: '',
     presenceOfEarDysmorphism: '',
     historyOfHearingLossAmongFamilyMembers: '',
-    ABRScale: ''
+    OAEResult: ''
         });
       } else {
         // Handle error response from API
@@ -434,7 +434,7 @@ export default function Newborn() {
                    value={formValues.ABRScale}
                    onChange={handleChange}
                   className="mt-1 p-2 rounded-md border border-gray-300 focus:outline-none focus:ring focus:ring-blue-200 focus:border-blue-500 block w-full" 
-                  name="ABRScale" required>
+                  name="OAEResult" required>
                     <option></option>
                     <option>Pass</option>
                     <option>Refer</option>
