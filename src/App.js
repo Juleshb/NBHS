@@ -15,9 +15,12 @@ import User from './adimin/user'
 import Audiologiste from './Audiologiste'
 import Audioscreaning from './Audiologiste/screaning';
 import Oaeresult from './Audiologiste/oaeresult';
+import Viewsingle from './Audiologiste/uppdateborn';
+import ABRScale from './Audiologiste/oaeresultupdate';
 import Register from './components/Login/UserRegistForm'
 import Viewuseradmin from './adimin/viewuser';
 import Viewsinglebon from './adimin/uppdateborn';
+
 
 export default function App() {
   return (
@@ -43,6 +46,8 @@ export default function App() {
           <Route path="/audiologiste" element={<Audiologiste/>} />
           <Route path="/audiologist/screaning" element={<Audioscreaning/>} />
           <Route path="/oaeresult" element={<Oaeresult/>} />
+          <Route path="/audiologiste/view/:userId" element ={<Viewsingle />} />
+          <Route path="/audiologiste/abrscale/:userId" element ={<ABRScale />} />
 
           {/* Adimins */}
 

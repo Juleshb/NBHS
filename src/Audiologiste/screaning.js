@@ -1,6 +1,6 @@
 import Navbar from "../components/Nav/nav";
 import Sidebar from "../components/Sidebar/AudiologisteSidebar";
-import TabNavigation from "../components/Screaning/screaning";
+import TabNavigation from "../components/Oaeresult/screaning";
 
 export default function audioscreaning() {
   return (

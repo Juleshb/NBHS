@@ -1,6 +1,6 @@
 
 import Navbar from "../components/Nav/nav";
-import Sidebar from "../components/Sidebar/Sidebar";
+import Sidebar from "../components/Sidebar/AudiologisteSidebar";
 import Viewsingle from "../components/Screaning/updateborn";
 
 

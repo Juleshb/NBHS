@@ -1,10 +1,10 @@
 
 import Navbar from "../components/Nav/nav";
-import Sidebar from "../components/Sidebar/Sidebar";
-import Viewsingle from "../components/Screaning/updateborn";
+import Sidebar from "../components/Sidebar/AudiologisteSidebar";
+import BornUpdateForm from "../components/Oaeresult/oaesesltuppdate";
 
 
-const Viewsinglebon = () => {
+const ABRScale = () => {
   
 
     return (
@@ -18,7 +18,7 @@ const Viewsinglebon = () => {
         <div className="px-4 md:px-10 mx-auto w-full -m-24">
       <div className="relative flex flex-col min-w-0 break-words w-full mb-6  border border-primary">
 
-      <Viewsingle />
+      <BornUpdateForm />
           </div>
           </div>
         
@@ -29,4 +29,4 @@ const Viewsinglebon = () => {
     );
 }
 
-export default Viewsinglebon;
+export default ABRScale;
