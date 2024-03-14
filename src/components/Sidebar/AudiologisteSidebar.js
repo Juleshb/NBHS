@@ -141,16 +141,16 @@ export default function Sidebar() {
                 <Link
                   className={
                     "text-xs flex py-3  block " +
-                    (window.location.href.indexOf("/admin/maps") !== -1
+                    (window.location.href.indexOf("/abrscale") !== -1
                       ? "text-lightBlue-500 hover:text-lightBlue-600"
                       : " hover:text-blueGray-500")
                   }
-                  to="/admin/maps"
+                  to="/abrscale"
                 >
                   <i
                     className={
                       "fas fa-map-marked mr-2 text-sm " +
-                      (window.location.href.indexOf("/admin/maps") !== -1
+                      (window.location.href.indexOf("/abrscale") !== -1
                         ? "opacity-75"
                         : "text-blueGray-300")
                     }

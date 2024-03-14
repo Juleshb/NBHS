@@ -17,6 +17,8 @@ import Audioscreaning from './Audiologiste/screaning';
 import Oaeresult from './Audiologiste/oaeresult';
 import Viewsingle from './Audiologiste/uppdateborn';
 import ABRScale from './Audiologiste/oaeresultupdate';
+import Getbrscale from './Audiologiste/aebrscaleresult';
+import ABRScaleupudate from './Audiologiste/abrresultupdate';
 import Register from './components/Login/UserRegistForm'
 import Viewuseradmin from './adimin/viewuser';
 import Viewsinglebon from './adimin/uppdateborn';
@@ -46,7 +48,9 @@ export default function App() {
           <Route path="/audiologiste" element={<Audiologiste/>} />
           <Route path="/audiologist/screaning" element={<Audioscreaning/>} />
           <Route path="/oaeresult" element={<Oaeresult/>} />
+          <Route path="/abrscale" element={<Getbrscale/>} />
           <Route path="/audiologiste/view/:userId" element ={<Viewsingle />} />
+          <Route path="/audiologiste/abrscaleupdate/:userId" element ={<ABRScaleupudate />} />
           <Route path="/audiologiste/abrscale/:userId" element ={<ABRScale />} />
 
           {/* Adimins */}
