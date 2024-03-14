@@ -141,16 +141,16 @@ export default function Sidebar() {
                 <Link
                   className={
                     "text-xs  flex py-3  block " +
-                    (window.location.href.indexOf("/admin/tables") !== -1
+                    (window.location.href.indexOf("/oaeresulte") !== -1
                       ? "text-lightBlue-500 hover:text-lightBlue-600"
                       : " hover:text-blueGray-500")
                   }
-                  to="/admin/tables"
+                  to="/oaeresulte"
                 >
                   <i
                     className={
                       "fas fa-table mr-2 text-sm " +
-                      (window.location.href.indexOf("/admin/tables") !== -1
+                      (window.location.href.indexOf("/oaeresulte") !== -1
                         ? "opacity-75"
                         : "text-blueGray-300")
                     }
