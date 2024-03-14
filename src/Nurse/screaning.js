@@ -1,6 +1,6 @@
 import Navbar from "../components/Nav/nav";
 import Sidebar from "../components/Sidebar/NurseSidebar";
-import TabNavigation from "../components/Screaning/screaning";
+import TabNavigation from "../components/Nurse/screaning";
 
 export default function Newapplication() {
   return (

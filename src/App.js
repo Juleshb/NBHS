@@ -10,6 +10,7 @@ import Newapplication from './student/newapplication';
 import Healthcare from './adimin/healthcare'
 import Nurse from './Nurse';
 import NurseScreaning from './Nurse/screaning'
+import NurseViewsinglebon from './Nurse/uppdateborn';
 import AdminScreaning from './adimin/screaning'
 import User from './adimin/user'
 import Audiologiste from './Audiologiste'
@@ -42,6 +43,7 @@ export default function App() {
 
           <Route path="/nurses" element={<Nurse/>} />
           <Route path="/nurse/screaning" element={<NurseScreaning/>} />
+          <Route path="/nurses/view/:userId" element ={<NurseViewsinglebon />} />
 
           {/*Audiologiste*/}
 
