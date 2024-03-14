@@ -32,7 +32,7 @@ const LandingPage = () => {
                     <br></br>
                     <br></br>
                   <h1 className="text-white font-semibold text-3xl">
-                  Welcome to Newborn Hearing Loss and Genetic Screening in Rwanda (NHSR)
+                  Welcome to Newborn Hearing Loss and Genetic Screening in Rwanda (NBHS)
                   </h1>
                   <p className="text-base tracking-wider text-white p-6 font-light"> The NBHS Research project in Rwanda is dedicated <br></br>
                    to advancing newborn hearing screening by implementing 
