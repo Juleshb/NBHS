@@ -22,7 +22,7 @@ import { useState } from 'react';
       e.preventDefault();
   
       try {
-        const response = await fetch('http://localhost:4600/DataCollection/API/users/register', {
+        const response = await fetch('https:/hblab.rw//DataCollection/API/users/register', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
