@@ -32,7 +32,7 @@ export default function HealthCenter() {
 
     if (authToken) {
       // Use the authToken in your API request
-      fetch('http://localhost:4600/DataCollection/API/healthcentre/add', {
+      fetch('https://nbhsbackend.onrender.com/DataCollection/API/healthcentre/add', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

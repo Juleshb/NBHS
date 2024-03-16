@@ -18,7 +18,7 @@ export default function Registedborn() {
       try {
         const authToken = localStorage.getItem('authToken');
         
-        const response = await fetch('http://localhost:4600/DataCollection/API/newBorns/getAll', {
+        const response = await fetch('https://nbhsbackend.onrender.com/DataCollection/API/newBorns/getAll', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',

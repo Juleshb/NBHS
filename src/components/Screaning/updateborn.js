@@ -34,7 +34,7 @@ const Viewsingle = () => {
 
   useEffect(() => {
     const authToken = localStorage.getItem('authToken');
-    fetch(`http://localhost:4600/DataCollection/API/newBorns/getSingle/${userId}`, {
+    fetch(`https://nbhsbackend.onrender.com/DataCollection/API/newBorns/getSingle/${userId}`, {
       headers: {
         'Authorization': `Bearer ${authToken}`
       }
@@ -124,7 +124,7 @@ const Viewsingle = () => {
     try {
       const authToken = localStorage.getItem('authToken');
 
-      const response = await fetch(`http://localhost:4600/DataCollection/API/newBorns/update/${userId}`, {
+      const response = await fetch(`https://nbhsbackend.onrender.com/DataCollection/API/newBorns/update/${userId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

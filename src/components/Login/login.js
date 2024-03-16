@@ -24,7 +24,7 @@ const Login = () => {
 
     try {
       // Assuming a fetch call to your login API
-      const response = await fetch('http://localhost:4600/DataCollection/API/users/login', {
+      const response = await fetch('https://nbhsbackend.onrender.com/DataCollection/API/users/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
