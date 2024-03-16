@@ -21,7 +21,7 @@ const UserView = () => {
   const [dataLoaded, setDataLoaded] = useState(false);
 
   useEffect(() => {
-    fetch(`http://localhost:4600/DataCollection/API/users/get/single/${userId}`)
+    fetch(`https://nbhsbackend.onrender.com/DataCollection/API/users/get/single/${userId}`)
       .then((response) => response.json())
       .then((responseData) => {
         console.log('Received user data:', responseData);

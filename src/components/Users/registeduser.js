@@ -16,7 +16,7 @@ const UserTable = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:4600/DataCollection/API/users/getall');
+        const response = await fetch('https://nbhsbackend.onrender.com/DataCollection/API/users/getall');
         const data = await response.json();
 
         if (response.ok) {
