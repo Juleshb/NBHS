@@ -17,7 +17,7 @@ function BornUpdateForm() {
     const fetchNewBorns = async () => {
         try {
             const authToken = localStorage.getItem('authToken');
-            const response = await fetch(`http://localhost:4600/DataCollection/API/newBorns/getSingle/${userId}`, {
+            const response = await fetch(`https://nbhsbackend.onrender.com/DataCollection/API/newBorns/getSingle/${userId}`, {
                 headers: {
                     'Authorization': `Bearer ${authToken}`
                 }
