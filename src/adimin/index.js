@@ -13,13 +13,13 @@ export default function Admin() {
 
         <div className="relative md:pt-32 pb-32 pt-10"> 
       </div>
-        <div className="px-4 md:px-10 mx-auto w-full -m-24">
-          
-        <div className="flex flex-wrap">
-             
-          <NewbornsChart />
 
-          <div className="lg:pt-12 pt-6 w-full md:w-3/12 px-4 text-center ">
+
+      <div className="px-4 md:px-10 mx-auto w-full m-2 ">
+          
+      <NewbornsChart />
+          
+      <div className="lg:pt-12 pt-6 w-full md:w-3/12 px-4 text-center ">
                 <div className="transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 duration-300 hover:text-white hover:bg-primary text-primary relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
                   <div className="px-4 py-5 flex-auto">
                     <div className="border hover:border-white text-5xl border-primary p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full ">
@@ -40,10 +40,10 @@ If you are foreigner The Clinical Placement fee will be paid at your arrival in 
                   </div>
                 </div>
               </div>
+              
+             </div>
+             
      
-            </div>
-         
-        </div>
         
        
       </div>

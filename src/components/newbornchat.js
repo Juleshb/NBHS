@@ -109,8 +109,8 @@ const Dashboard = () => {
   };
 
   const pieChartStyle = {
-    width: '100px', // Adjust the width as needed
-    height: '100px', // Adjust the height as needed
+    width: '250px', // Adjust the width as needed
+    height: '250px', // Adjust the height as needed
   };
    
 
@@ -121,9 +121,9 @@ const Dashboard = () => {
         <h2 className="text-xl font-semibold mb-3">Number of Births Created by Date</h2>
         <Line data={lineChartData} options={options} />
       </div>
-      <div className=" p-4  mb-8 pt-6 w-full md:w-4/12 px-4 text-center">
+      <div className=" p-4  mb-8 pt-6 w-full md:w-4/12 px-4 text-center"  style={pieChartStyle}>
         <h2 className="text-xl font-semibold mb-3">OAEResult Distribution</h2>
-        <Pie className='h-2' data={oaerResultChartData}  style={pieChartStyle} />
+        <Pie className='h-2' data={oaerResultChartData}  />
       </div>
       <div className=" p-4  mb-8 pt-6 w-full md:w-4/12 px-4 text-center">
         <h2 className="text-xl font-semibold mb-3">Refer vs Pass Births by Date</h2>
