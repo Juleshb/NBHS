@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Line, Pie, Bar } from 'react-chartjs-2';
 import { Chart, registerables } from 'chart.js';
+import { Icon } from "@iconify/react";
+import { Link } from "react-router-dom";
 
 
 Chart.register(...registerables);
@@ -31,7 +33,130 @@ const Dashboard = () => {
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div className='mx-auto '>
+        <div className='flex flex-wrap mb-24 '>
+
+        <div className="lg:pt-12 pt-6 w-full md:w-3/12 px-4 text-center ">
+         <div className="animate-pulse flex flex-col space-x-4">
+    <div className="rounded-full bg-slate-700 h-10 w-10"></div>
+    <div className="flex-1 space-y-6 py-1">
+      <div className="h-2 bg-slate-700 rounded"></div>
+      <div className="space-y-3">
+        <div className="grid grid-cols-3 gap-4">
+          <div className="h-2 bg-slate-700 rounded col-span-2"></div>
+          <div className="h-2 bg-slate-700 rounded col-span-1"></div>
+        </div>
+        <div className="h-2 bg-slate-700 rounded"></div>
+      </div>
+      <div className="h-2 bg-slate-700 rounded"></div>
+      <div className="space-y-3">
+        <div className="grid grid-cols-3 gap-4">
+          <div className="h-2 bg-slate-700 rounded col-span-2"></div>
+          <div className="h-2 bg-slate-700 rounded col-span-1"></div>
+        </div>
+        <div className="h-2 bg-slate-700 rounded"></div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div className="lg:pt-12 pt-6 w-full md:w-3/12 px-4 text-center ">
+         <div className="animate-pulse flex flex-col space-x-4">
+    <div className="rounded-full bg-slate-700 h-10 w-10"></div>
+    <div className="flex-1 space-y-6 py-1">
+      <div className="h-2 bg-slate-700 rounded"></div>
+      <div className="space-y-3">
+        <div className="grid grid-cols-3 gap-4">
+          <div className="h-2 bg-slate-700 rounded col-span-2"></div>
+          <div className="h-2 bg-slate-700 rounded col-span-1"></div>
+        </div>
+        <div className="h-2 bg-slate-700 rounded"></div>
+      </div>
+      <div className="h-2 bg-slate-700 rounded"></div>
+      <div className="space-y-3">
+        <div className="grid grid-cols-3 gap-4">
+          <div className="h-2 bg-slate-700 rounded col-span-2"></div>
+          <div className="h-2 bg-slate-700 rounded col-span-1"></div>
+        </div>
+        <div className="h-2 bg-slate-700 rounded"></div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div className="lg:pt-12 pt-6 w-full md:w-3/12 px-4 text-center ">
+         <div className="animate-pulse flex flex-col space-x-4">
+    <div className="rounded-full bg-slate-700 h-10 w-10"></div>
+    <div className="flex-1 space-y-6 py-1">
+      <div className="h-2 bg-slate-700 rounded"></div>
+      <div className="space-y-3">
+        <div className="grid grid-cols-3 gap-4">
+          <div className="h-2 bg-slate-700 rounded col-span-2"></div>
+          <div className="h-2 bg-slate-700 rounded col-span-1"></div>
+        </div>
+        <div className="h-2 bg-slate-700 rounded"></div>
+      </div>
+      <div className="h-2 bg-slate-700 rounded"></div>
+      <div className="space-y-3">
+        <div className="grid grid-cols-3 gap-4">
+          <div className="h-2 bg-slate-700 rounded col-span-2"></div>
+          <div className="h-2 bg-slate-700 rounded col-span-1"></div>
+        </div>
+        <div className="h-2 bg-slate-700 rounded"></div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div className="lg:pt-12 pt-6 w-full md:w-3/12 px-4 text-center ">
+         <div className="animate-pulse flex flex-col space-x-4">
+    <div className="rounded-full bg-slate-700 h-10 w-10"></div>
+    <div className="flex-1 space-y-6 py-1">
+      <div className="h-2 bg-slate-700 rounded"></div>
+      <div className="space-y-3">
+        <div className="grid grid-cols-3 gap-4">
+          <div className="h-2 bg-slate-700 rounded col-span-2"></div>
+          <div className="h-2 bg-slate-700 rounded col-span-1"></div>
+        </div>
+        <div className="h-2 bg-slate-700 rounded"></div>
+      </div>
+      <div className="h-2 bg-slate-700 rounded"></div>
+      <div className="space-y-3">
+        <div className="grid grid-cols-3 gap-4">
+          <div className="h-2 bg-slate-700 rounded col-span-2"></div>
+          <div className="h-2 bg-slate-700 rounded col-span-1"></div>
+        </div>
+        <div className="h-2 bg-slate-700 rounded"></div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  </div>
+
+  
+         <div className="animate-pulse flex flex-col  space-x-4">
+    
+    <div className="flex-1 space-y-6 py-1">
+      <div className="h-2 bg-slate-700 rounded"></div>
+      <div className="space-y-3">
+        <div className="grid grid-cols-3 gap-4">
+          <div className="h-2 bg-slate-700 rounded col-span-2"></div>
+          <div className="h-2 bg-slate-700 rounded col-span-1"></div>
+        </div>
+        <div className="h-2 bg-slate-700 rounded"></div>
+      </div>
+      <div className="h-2 bg-slate-700 rounded"></div>
+      <div className="space-y-3">
+        <div className="grid grid-cols-3 gap-4">
+          <div className="h-2 bg-slate-700 rounded col-span-2"></div>
+          <div className="h-2 bg-slate-700 rounded col-span-1"></div>
+        </div>
+        <div className="h-2 bg-slate-700 rounded"></div>
+      </div>
+    </div>
+  </div>
+  
+         
+    </div>;
   }
 
   // Processing data to count births for each date
@@ -115,20 +240,111 @@ const Dashboard = () => {
    
 
   return (
+
+    <div>
+       <div className='flex flex-wrap border border-primary'>
+    <div className="lg:pt-12 pt-6 w-full md:w-3/12 px-4 text-center ">
+                <div className="transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 duration-300 hover:text-white hover:bg-primary text-primary relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
+                  <div className="px-4 py-5 flex-auto">
+                    <div className="border hover:border-white text-5xl border-primary p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full ">
+                    <Icon icon="line-md:uploading-loop" />
+                    </div>
+                    <h6 className="text-sm  font-semibold">Total of registed new borns</h6>
+                    <p className="mt-2 mb-4  ms-1 text-sm ">
+                    As you read before sign in there is 9 documents to be uploaded
+All Must be in PDF and Not more than 2Mbs
+If you are foreigner The Clinical Placement fee will be paid at your arrival in Kigali. And slip uploaded
+                    </p>
+                    <p className="underline text-base mt-5">
+                      <Link title="Meet our doctors" className=""  to="/student/application" >
+                      Upload documents
+                       </Link>
+                    </p>
+
+                  </div>
+                </div>
+              </div>
+              <div className="lg:pt-12 pt-6 w-full md:w-3/12 px-4 text-center ">
+                <div className="transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 duration-300 hover:text-white hover:bg-primary text-primary relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
+                  <div className="px-4 py-5 flex-auto">
+                    <div className="border hover:border-white text-5xl border-primary p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full ">
+                    <Icon icon="line-md:uploading-loop" />
+                    </div>
+                    <h6 className="text-sm  font-semibold">Step 3: Upload all required documents</h6>
+                    <p className="mt-2 mb-4  ms-1 text-sm ">
+                    As you read before sign in there is 9 documents to be uploaded
+All Must be in PDF and Not more than 2Mbs
+If you are foreigner The Clinical Placement fee will be paid at your arrival in Kigali. And slip uploaded
+                    </p>
+                    <p className="underline text-base mt-5">
+                      <Link title="Meet our doctors" className=""  to="/student/application" >
+                      Upload documents
+                       </Link>
+                    </p>
+
+                  </div>
+                </div>
+              </div>
+              <div className="lg:pt-12 pt-6 w-full md:w-3/12 px-4 text-center ">
+                <div className="transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 duration-300 hover:text-white hover:bg-primary text-primary relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
+                  <div className="px-4 py-5 flex-auto">
+                    <div className="border hover:border-white text-5xl border-primary p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full ">
+                    <Icon icon="line-md:uploading-loop" />
+                    </div>
+                    <h6 className="text-sm  font-semibold">Step 3: Upload all required documents</h6>
+                    <p className="mt-2 mb-4  ms-1 text-sm ">
+                    As you read before sign in there is 9 documents to be uploaded
+All Must be in PDF and Not more than 2Mbs
+If you are foreigner The Clinical Placement fee will be paid at your arrival in Kigali. And slip uploaded
+                    </p>
+                    <p className="underline text-base mt-5">
+                      <Link title="Meet our doctors" className=""  to="/student/application" >
+                      Upload documents
+                       </Link>
+                    </p>
+
+                  </div>
+                </div>
+              </div>
+
+              <div className="lg:pt-12 pt-6 w-full md:w-3/12 px-4 text-center ">
+                <div className="transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 duration-300 hover:text-white hover:bg-primary text-primary relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
+                  <div className="px-4 py-5 flex-auto">
+                    <div className="border hover:border-white text-5xl border-primary p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full ">
+                    <Icon icon="line-md:uploading-loop" />
+                    </div>
+                    <h6 className="text-sm  font-semibold">Step 3: Upload all required documents</h6>
+                    <p className="mt-2 mb-4  ms-1 text-sm ">
+                    As you read before sign in there is 9 documents to be uploaded
+All Must be in PDF and Not more than 2Mbs
+If you are foreigner The Clinical Placement fee will be paid at your arrival in Kigali. And slip uploaded
+                    </p>
+                    <p className="underline text-base mt-5">
+                      <Link title="Meet our doctors" className=""  to="/student/application" >
+                      Upload documents
+                       </Link>
+                    </p>
+
+                  </div>
+                </div>
+              </div>
+
+              </div> 
     <div className=" bg-white text-primary p-10 mt-5 flex flex-wrap border border-primary">
       
       <div className="p-4 mb-8  pt-6 w-full md:w-4/12 px-4 text-center">
-        <h2 className="text-xl font-semibold mb-3">Number of Births Created by Date</h2>
+        <h2 className="text-sm  font-semibold">Number of Births Created by Date</h2>
         <Line data={lineChartData} options={options} />
       </div>
       <div className=" p-4  mb-8 pt-6 w-full md:w-4/12 px-4 text-center"  style={pieChartStyle}>
-        <h2 className="text-xl font-semibold mb-3">OAEResult Distribution</h2>
+        <h2 className="text-sm  font-semibold">OAEResult Distribution</h2>
         <Pie className='h-2' data={oaerResultChartData}  />
       </div>
       <div className=" p-4  mb-8 pt-6 w-full md:w-4/12 px-4 text-center">
-        <h2 className="text-xl font-semibold mb-3">Refer vs Pass Births by Date</h2>
+        <h2 className="text-sm  font-semibold">Refer vs Pass Births by Date</h2>
         <Bar data={barChartData} />
       </div>
+    </div>
     </div>
   );
 };
