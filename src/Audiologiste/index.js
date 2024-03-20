@@ -1,6 +1,7 @@
 import Navbar from "../components/Nav/nav";
 import Sidebar from "../components/Sidebar/AudiologisteSidebar";
-import { Route, Routes, Navigate } from 'react-router-dom';
+import NewbornsChart from "../components/chartnurse";
+
 
 export default function Admin() {
   return (
@@ -11,14 +12,17 @@ export default function Admin() {
 
         <div className="relative md:pt-32 pb-32 pt-10"> 
       </div>
-        <div className="px-4 md:px-10 mx-auto w-full m-2">
+
+
+      <div className="px-4 md:px-10 mx-auto w-full m-2 ">
           
-          <Routes>
+      <NewbornsChart />
           
-            <Route path="*" element={<Navigate to="/audiologiste" />} />
-          </Routes>
-         
-        </div>
+      
+              
+             </div>
+             
+     
         
        
       </div>
