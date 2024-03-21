@@ -3,7 +3,14 @@ import { useState } from 'react';
 
 export default function Newborn() {
 
+
+
+ 
+ 
+  
+
   const [formValues, setFormValues] = useState({
+
     mothername: '',
     fathername: '',
     maritalStatus: '',
@@ -18,8 +25,11 @@ export default function Newborn() {
     weightAtBirth: '',
     neonatalInfectionRisk: '',
     maternalSevereDisease: '',
+    selectedmaternalDiseases: [],
     historyOfMaternalAlcoholUseAndSmoking: '',
+    selectedhistoryOfMaternalAlcoholUseAndSmoking:'',
     maternalExplosureToOtotoxicDrugs: '',
+    selectedMaternalExplosuretoOtotoxicDrugs: [],
     newbornPositionInTheFamily: '',
     presenceOfEarDysmorphism: '',
     historyOfHearingLossAmongFamilyMembers: '',
@@ -33,12 +43,43 @@ export default function Newborn() {
   const [SuccessMessage, setSuccessMessage] = useState('');
 
   const handleChange = (event) => {
-    const { name, value } = event.target;
-    setFormValues({
-      ...formValues,
-      [name]: value
-    });
+    const { name, type, value, checked } = event.target;
+  
+    if (type === 'checkbox' && name === 'selectedmaternalDiseases') {
+      // If it's a checkbox for maternal diseases, update selectedmaternalDiseases
+      setFormValues(prevValues => ({
+        ...prevValues,
+        selectedmaternalDiseases: {
+          ...prevValues.selectedmaternalDiseases,
+          [value]: checked,
+        },
+      }));
+    } else if (type === 'checkbox' && name.startsWith('selectedMaternalExplosuretoOtotoxicDrugs')) {
+      // If it's a checkbox for drugs, update selectedMaternalExplosuretoOtotoxicDrugs
+      const drug = value;
+      if (checked) {
+        setFormValues(prevValues => ({
+          ...prevValues,
+          selectedMaternalExplosuretoOtotoxicDrugs: [...prevValues.selectedMaternalExplosuretoOtotoxicDrugs, drug],
+        }));
+      } else {
+        setFormValues(prevValues => ({
+          ...prevValues,
+          selectedMaternalExplosuretoOtotoxicDrugs: prevValues.selectedMaternalExplosuretoOtotoxicDrugs.filter(item => item !== drug),
+        }));
+      }
+    } else {
+      // For other fields, update regular form values
+      setFormValues(prevValues => ({
+        ...prevValues,
+        [name]: value,
+        // Reset selectedmaternalDiseases when maternalSevereDisease changes to 'No'
+        selectedmaternalDiseases: name === 'maternalSevereDisease' && value === 'No' ? {} : prevValues.selectedmaternalDiseases,
+      }));
+    }
   };
+  
+  
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -58,8 +99,11 @@ export default function Newborn() {
       weightAtBirth: formValues.weightAtBirth,
       neonatalInfectionRisk: formValues.neonatalInfectionRisk,
       maternalSevereDisease: formValues.maternalSevereDisease,
+      selectedmaternalDiseases: JSON.stringify(formValues.selectedmaternalDiseases),
       historyOfMaternalAlcoholUseAndSmoking: formValues.historyOfMaternalAlcoholUseAndSmoking,
+      selectedhistoryOfMaternalAlcoholUseAndSmoking: formValues.selectedhistoryOfMaternalAlcoholUseAndSmoking,
       maternalExplosureToOtotoxicDrugs: formValues.maternalExplosureToOtotoxicDrugs,
+      selectedMaternalExplosuretoOtotoxicDrugs: JSON.stringify(formValues.selectedMaternalExplosuretoOtotoxicDrugs),
       newbornPositionInTheFamily: formValues.newbornPositionInTheFamily,
       presenceOfEarDysmorphism: formValues.presenceOfEarDysmorphism,
       historyOfHearingLossAmongFamilyMembers: formValues.historyOfHearingLossAmongFamilyMembers,
@@ -103,8 +147,11 @@ export default function Newborn() {
     weightAtBirth: '',
     neonatalInfectionRisk: '',
     maternalSevereDisease: '',
+    selectedmaternalDiseases: '',
     historyOfMaternalAlcoholUseAndSmoking: '',
+    selectedhistoryOfMaternalAlcoholUseAndSmoking: '',
     maternalExplosureToOtotoxicDrugs: '',
+    selectedMaternalExplosuretoOtotoxicDrugs: '',
     newbornPositionInTheFamily: '',
     presenceOfEarDysmorphism: '',
     historyOfHearingLossAmongFamilyMembers: '',
@@ -335,17 +382,59 @@ export default function Newborn() {
                   </select>
                 </div>
                 <div className="col-span-1">
-                  <label htmlFor="Maternal Severe Disease ex: Miningitis" className="block text-sm font-medium text-gray-700">Maternal Severe Disease ex: Miningitis</label>
-                  <select 
-                   value={formValues.maternalSevereDisease}
-                   onChange={handleChange}
-                  className="mt-1 p-2 rounded-md border border-gray-300 focus:outline-none focus:ring focus:ring-blue-200 focus:border-blue-500 block w-full" 
-                   name="maternalSevereDisease" required>
-                    <option></option>
-                    <option>Yes</option>
-                    <option>No</option>
-                  </select>
-                </div>
+        <label htmlFor="maternalSevereDisease" className="block text-sm font-medium text-gray-700">Maternal Severe Disease ex: Meningitis</label>
+        <select
+          value={formValues.maternalSevereDisease}
+          onChange={handleChange}
+          className="mt-1 p-2 rounded-md border border-gray-300 focus:outline-none focus:ring focus:ring-blue-200 focus:border-blue-500 block w-full"
+          name="maternalSevereDisease"
+          required
+        >
+          <option></option>
+          <option>Yes</option>
+          <option>No</option>
+        </select>
+     
+      {formValues.maternalSevereDisease === 'Yes' && (
+  <>
+    <label htmlFor="maternalDiseases" className="block text-sm font-medium text-gray-700">Select Maternal/Neonatal Diseases:</label>
+    <div className="space-y-2">
+      {[
+        'Congenital Cytomegalovirus',
+        'Congenital Rubella',
+        'Congenital Toxoplasmosis',
+        'Herpes SimplexVirus',
+        'Varicella Virus',
+        'Meningitis',
+        'Syphilis',
+        'Mumps',
+        'Diabetes',
+        'Hyperbilirubinemia',
+        'Anoxia',
+        'Preeclampsia',
+      ].map((maternalDisease, index) => (
+        <div key={index} className="flex items-center">
+          <input
+            type="checkbox"
+            id={`maternalDisease-${index}`}
+            name="selectedmaternalDiseases" // Ensure the name is consistent for all checkboxes
+            value={maternalDisease}
+            checked={formValues.selectedmaternalDiseases[maternalDisease] || false}
+            onChange={handleChange}
+            className="form-checkbox h-5 w-5 text-indigo-600"
+          />
+          <label htmlFor={`maternalDisease-${index}`} className="ml-2">
+            {maternalDisease}
+          </label>
+        </div>
+      ))}
+    </div>
+  </>
+)}
+      </div>
+
+                
+
                 <div className="col-span-1">
                   <label htmlFor="History of Maternal Alcohol Use and Smoking" className="block text-sm font-medium text-gray-700">History of Maternal Alcohol Use and Smoking</label>
                   <select 
@@ -357,6 +446,22 @@ export default function Newborn() {
                     <option>Yes</option>
                     <option>No</option>
                   </select>
+                  {formValues.historyOfMaternalAlcoholUseAndSmoking === 'Yes' && (
+  <>
+    <label htmlFor="maternalDiseases" className="block text-sm font-medium text-gray-700">Which History?</label>
+    
+    <select 
+                   value={formValues.selectedhistoryOfMaternalAlcoholUseAndSmoking}
+                   onChange={handleChange}
+                  className="mt-1 p-2 rounded-md border border-gray-300 focus:outline-none focus:ring focus:ring-blue-200 focus:border-blue-500 block w-full"
+                  name="selectedhistoryOfMaternalAlcoholUseAndSmoking" >
+                    <option></option>
+                    <option>Alcohol use only</option>
+                    <option>Smoking only</option>
+                    <option>Both alcohol use and smoking</option>
+                  </select>
+  </>
+)}
                 </div>
                 <div className="col-span-1">
                   <label htmlFor="Maternal Explosure to Ototoxic Drugs" className="block text-sm font-medium text-gray-700">Maternal Explosure to Ototoxic Drugs</label>
@@ -369,6 +474,39 @@ export default function Newborn() {
                     <option>Yes</option>
                     <option>No</option>
                   </select>
+                  {formValues.maternalExplosureToOtotoxicDrugs === 'Yes' && (
+  <>
+    <label htmlFor="maternalDiseases" className="block text-sm font-medium text-gray-700">Which ototoxic drugs to which the mother was exposed?</label>
+    
+    {[
+  'Streptomycin',
+  'Neomycin',
+  'Gentamycin',
+  'Azithromycin',
+  'Furosemide',
+  'Ethamycin',
+  'Cisplatin',
+  'Carboplatin',
+].map((drug, index) => (
+  <div key={index} className="flex items-center">
+    <input
+      type="checkbox"
+      id={`drug-${index}`}
+      name={`selectedMaternalExplosuretoOtotoxicDrugs-${index}`}
+      value={drug}
+      onChange={handleChange}
+      checked={formValues.selectedMaternalExplosuretoOtotoxicDrugs && formValues.selectedMaternalExplosuretoOtotoxicDrugs.includes(drug)}
+      className="form-checkbox h-5 w-5 text-indigo-600"
+    />
+    <label htmlFor={`drug-${index}`} className="ml-2">
+      {drug}
+    </label>
+  </div>
+))}
+
+
+  </>
+)}
                 </div>
                 <div className="col-span-1">
                   <label htmlFor="Newborn's Position in the Family" className="block text-sm font-medium text-gray-700">Newborn&apos;s Position in the Family</label>
