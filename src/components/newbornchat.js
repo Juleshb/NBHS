@@ -270,7 +270,7 @@ const Dashboard = () => {
                     <div className="border hover:border-white text-5xl border-primary p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full ">
                     <Icon icon="lucide:baby" />
                     </div>
-                    <h6 className="text-sm  font-semibold">Total Number of OAEResult Refered</h6>
+                    <h6 className="text-sm  font-semibold">Total Number of OAE Result Refere</h6>
                     <p className="mt-2 mb-4 text-4xl ">{referCount}</p>
                     <p className="underline text-base mt-5">
                       <Link title="Meet our doctors" className=""  to="" >
@@ -287,7 +287,7 @@ const Dashboard = () => {
                     <div className="border hover:border-white text-5xl border-primary p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full ">
                     <Icon icon="ph:baby-bold" />
                     </div>
-                    <h6 className="text-sm  font-semibold">Total Number of OAEResult Passes</h6>
+                    <h6 className="text-sm  font-semibold">Total Number of OAE Result Passe</h6>
                     <p className="mt-2 mb-4 text-4xl ">{passCount} </p>
                     <p className="underline text-base mt-5">
                       <Link title="Meet our doctors" className=""  to="/student/application" >
@@ -308,7 +308,7 @@ const Dashboard = () => {
         <Line data={lineChartData} options={options} />
       </div>
       <div className=" p-4  mb-8 pt-6 w-full md:w-4/12 px-4 text-center"  style={pieChartStyle}>
-        <h2 className="text-sm  font-semibold">OAEResult Distribution</h2>
+        <h2 className="text-sm  font-semibold">OAE Result Distribution</h2>
         <Pie className='h-2' data={oaerResultChartData}  />
       </div>
       <div className=" p-4  mb-8 pt-6 w-full md:w-4/12 px-4 text-center">
