@@ -132,7 +132,7 @@ export default function Sidebar() {
                     }
                   ><Icon icon="zondicons:add-outline" /></i>{" "}
                   
-                  Screaning
+                  Screening
                 </Link>
               </li>
 

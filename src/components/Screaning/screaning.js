@@ -34,7 +34,7 @@ function TabNavigation() {
         >
             
         <i className='mr-2'><Icon icon="el:list-alt" /></i>
-        Registed Born
+        Registed New Born
         </button>
        
       </div>
