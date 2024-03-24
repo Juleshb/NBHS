@@ -1,6 +1,6 @@
 import Navbar from "../components/Nav/nav";
 import Sidebar from "../components/Sidebar/Sidebar";
-import TabNavigation from "../components/Oaeresult/Refers";
+import TabNavigation from "../components/Oaeresult/RefersAdmin";
 
 
 export default function oaeresult() {

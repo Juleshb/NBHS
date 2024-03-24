@@ -22,6 +22,7 @@ import Getbrscale from './Audiologiste/aebrscaleresult';
 import ABRScaleupudate from './Audiologiste/abrresultupdate';
 import Register from './components/Login/UserRegistForm'
 import Viewuseradmin from './adimin/viewuser';
+import ABRScaleupudateAdmin from './adimin/abrresultupdate';
 import Viewsinglebon from './adimin/uppdateborn';
 import AdiminOaeresult from './adimin/oaeresult';
 
@@ -66,6 +67,7 @@ export default function App() {
           <Route path="/users/view/:userId" element ={<Viewuseradmin />} />
           <Route path="/born/view/:userId" element ={<Viewsinglebon />} />
           <Route path="/oaeresulte" element={<AdiminOaeresult/>} />
+          <Route path="/adimin/audiologiste/abrscale/:userId" element ={<ABRScaleupudateAdmin />} />
           
           <Route path="*" element={<Navigate to="/landing" />} />
         </Routes>
