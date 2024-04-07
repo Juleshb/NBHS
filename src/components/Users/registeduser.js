@@ -3,6 +3,8 @@ import { useState,  useEffect, } from 'react';
 import { Icon } from '@iconify/react';
 import { useNavigate } from 'react-router-dom';
 
+import * as XLSX from 'xlsx';
+
 const UserTable = () => {
   const [users, setUsers] = useState([]);
 
@@ -31,8 +33,73 @@ const UserTable = () => {
 
     fetchData();
   }, []);
+
+
+  const exportJson = () => {
+    const jsonContent = JSON.stringify(users, null, 2);
+    downloadFile(jsonContent, 'users.json', 'application/json');
+  };
+
+  const exportExcel = () => {
+    const workbook = XLSX.utils.book_new();
+    const sheet = XLSX.utils.json_to_sheet(users);
+    XLSX.utils.book_append_sheet(workbook, sheet, 'Users');
+    const excelBuffer = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
+    const excelData = new Blob([excelBuffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+    const excelUrl = URL.createObjectURL(excelData);
+    downloadFile(excelUrl, 'users.xlsx', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+  };
+
+  const exportSeed = () => {
+    const seedContent = `'use strict';
+
+/** @type {import('sequelize-cli').Migration} */
+module.exports = {
+  async up(queryInterface, Sequelize) {
+    await queryInterface.bulkInsert('Users', [
+${users.map(user => {
+      return `      {
+        role: "${user.role}",
+        firstName: "${user.firstName}",
+        lastName: "${user.lastName}",
+        email: "${user.email}",
+        pin: "${user.pin}",
+        type: ${user.type ? `"${user.type}"` : null},
+        profile: ${user.profile ? `"${user.profile}"` : null},
+        HealthCentre: ${user.HealthCentre},
+        updatedAt: "${user.updatedAt}",
+        createdAt: "${user.createdAt}"
+      },`;
+    }).join('\n')}
+    ], {});
+  },
+
+  async down(queryInterface, Sequelize) {
+    // Revert the data
+  }
+};
+`;
+    downloadFile(seedContent, 'seed.js', 'text/javascript');
+  };
+
+  const downloadFile = (content, fileName, contentType) => {
+    const a = document.createElement('a');
+    const file = new Blob([content], { type: contentType });
+    a.href = URL.createObjectURL(file);
+    a.download = fileName;
+    a.click();
+  };
+
+
     return (
       <>
+
+<div className="text-3xl">
+          
+          <button className="p-2" onClick={exportJson}><Icon icon="bi:filetype-json" /></button>
+          <button className="p-2" onClick={exportExcel}><Icon icon="vscode-icons:file-type-excel" /></button>
+          <button className="p-2" onClick={exportSeed}><Icon icon="emojione:seedling" /></button>
+        </div>
       <form className="flex flex-row flex-wrap items-center">
             <div className="relative flex w-full flex-wrap items-stretch">
               <span className="z-10 h-full leading-snug font-normal absolute text-center text-blueGray-600 absolute bg-transparent rounded text-base items-center justify-center w-8 pl-3 py-3">
