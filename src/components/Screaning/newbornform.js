@@ -1,16 +1,16 @@
 import { Icon } from '@iconify/react';
 import { useState } from 'react';
 
-const rwandanProvincesData = [
-  { name: 'Kigali City', districts: ['Gasabo', 'Kicukiro', 'Nyarugenge'] },
-  { name: 'Northern Province', districts: ['Burera', 'Gakenke', 'Musanze', 'Rulindo'] },
-  { name: 'Eastern Province', districts: ['Bugesera', 'Gatsibo', 'Kayonza', 'Kirehe', 'Ngoma', 'Nyagatare', 'Rwamagana'] },
-  { name: 'Southern Province', districts: ['Gisagara', 'Huye', 'Kamonyi', 'Muhanga', 'Nyamagabe', 'Nyanza', 'Nyaruguru', 'Ruhango'] },
-  { name: 'Western Province', districts: ['Karongi', 'Ngororero', 'Nyabihu', 'Nyamasheke', 'Rubavu', 'Rusizi', 'Rutsiro'] }
-];
-
 export default function Newborn() {
+
+
+
+ 
+ 
+  
+
   const [formValues, setFormValues] = useState({
+
     mothername: '',
     fathername: '',
     maritalStatus: '',
@@ -27,13 +27,14 @@ export default function Newborn() {
     maternalSevereDisease: '',
     selectedmaternalDiseases: [],
     historyOfMaternalAlcoholUseAndSmoking: '',
-    selectedhistoryOfMaternalAlcoholUseAndSmoking: '',
+    selectedhistoryOfMaternalAlcoholUseAndSmoking:'',
     maternalExplosureToOtotoxicDrugs: '',
     selectedMaternalExplosuretoOtotoxicDrugs: [],
     newbornPositionInTheFamily: '',
     presenceOfEarDysmorphism: '',
     historyOfHearingLossAmongFamilyMembers: '',
-    OAEResult: ''
+    OAEResult: '',
+    // Add state variables for the rest of the form fields based on the provided form
   });
 
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
@@ -41,11 +42,11 @@ export default function Newborn() {
   const [errorMessage, setErrorMessage] = useState('');
   const [SuccessMessage, setSuccessMessage] = useState('');
 
-
   const handleChange = (event) => {
     const { name, type, value, checked } = event.target;
+  
     if (type === 'checkbox' && name === 'selectedmaternalDiseases') {
-      // Checkbox for maternal diseases
+      // If it's a checkbox for maternal diseases, update selectedmaternalDiseases
       setFormValues(prevValues => ({
         ...prevValues,
         selectedmaternalDiseases: {
@@ -54,7 +55,7 @@ export default function Newborn() {
         },
       }));
     } else if (type === 'checkbox' && name.startsWith('selectedMaternalExplosuretoOtotoxicDrugs')) {
-      // Checkbox for drugs
+      // If it's a checkbox for drugs, update selectedMaternalExplosuretoOtotoxicDrugs
       const drug = value;
       if (checked) {
         setFormValues(prevValues => ({
@@ -68,26 +69,16 @@ export default function Newborn() {
         }));
       }
     } else {
-      // For other fields
+      // For other fields, update regular form values
       setFormValues(prevValues => ({
         ...prevValues,
         [name]: value,
+        // Reset selectedmaternalDiseases when maternalSevereDisease changes to 'No'
         selectedmaternalDiseases: name === 'maternalSevereDisease' && value === 'No' ? {} : prevValues.selectedmaternalDiseases,
       }));
     }
-    // If the changed field is province, update the districts dropdown
-    if (name === 'province') {
-      const selectedProvinceData = rwandanProvincesData.find(province => province.name === value);
-      setFormValues(prevValues => ({
-        ...prevValues,
-        district: '', // Reset district when province changes
-      }));
-      setFormValues(prevValues => ({
-        ...prevValues,
-        district: selectedProvinceData ? selectedProvinceData.districts[0] : '', // Set the first district of the selected province
-      }));
-    }
   };
+  
   
 
   const handleSubmit = async (event) => {
@@ -264,41 +255,62 @@ export default function Newborn() {
                   name="phonecontact" required />
                 </div>
 
-                
                 <div className="col-span-1">
-        <label htmlFor="province" className="block text-sm font-medium text-gray-700">Province</label>
-        <select 
-          id="province" 
-          name="province" 
-          value={formValues.province} 
-          onChange={handleChange} 
-          className="mt-1 p-2 rounded-md border border-gray-300 focus:outline-none focus:ring focus:ring-blue-200 focus:border-blue-500 block w-full" 
-          required
-        >
-          <option value="">Select</option>
-          {rwandanProvincesData.map(province => (
-            <option key={province.name} value={province.name}>{province.name}</option>
-          ))}
-        </select>
-      </div>
-      <div className="col-span-1">
-        <label htmlFor="district" className="block text-sm font-medium text-gray-700">District</label>
-        <select 
-          id="district" 
-          name="district" 
-          value={formValues.district} 
-          onChange={handleChange} 
-          className="mt-1 p-2 rounded-md border border-gray-300 focus:outline-none focus:ring focus:ring-blue-200 focus:border-blue-500 block w-full" 
-          required
-        >
-          <option value="">Select</option>
-          {formValues.province && rwandanProvincesData.find(province => province.name === formValues.province)?.districts.map((district, index) => (
-            <option key={index} value={district}>{district}</option>
-          ))}
-        </select>
-      </div>
-     
-   
+                  <label htmlFor="Province" className="block text-sm font-medium text-gray-700">Province</label>
+                  <select 
+                   value={formValues.province}
+                   onChange={handleChange}
+                  className="mt-1 p-2 rounded-md border border-gray-300 focus:outline-none focus:ring focus:ring-blue-200 focus:border-blue-500 block w-full" id="Province" 
+                  name="province" required>
+                    <option></option>
+                    <option>Eastern province</option>
+                    <option>Western province</option>
+                    <option>Southern province</option>
+                    <option>Northern province</option>
+                    <option>Northern province</option>
+                    <option>Kigali city</option>
+                  </select>
+                </div>
+                <div className="col-span-1">
+                  <label htmlFor="District" className="block text-sm font-medium text-gray-700">District</label>
+                  <select 
+                   value={formValues.district}
+                   onChange={handleChange}
+                  className="mt-1 p-2 rounded-md border border-gray-300 focus:outline-none focus:ring focus:ring-blue-200 focus:border-blue-500 block w-full" id="District" 
+                  name="district" required>
+                    <option></option>
+                    <option>Bugesera</option>
+                    <option>Burera</option>
+                    <option>Gakenke</option>
+                    <option>Gasabo</option>
+                    <option>Gatsibo</option>
+                    <option>Gicumbi</option>
+                    <option>Gisagara</option>
+                    <option>Huye</option>
+                    <option>Kamonyi</option>
+                    <option>Karongi</option>
+                    <option>Kayonza</option>
+                    <option>Kicukiro</option>
+                    <option>Kirehe</option>
+                    <option>Muhanga</option>
+                    <option>Musanze</option>
+                    <option>Ngoma</option>
+                    <option>Ngororero</option>
+                    <option>Nyabihu</option>
+                    <option>Nyagatare</option>
+                    <option>Nyamagabe</option>
+                    <option>Nyamasheke</option>
+                    <option>Nyanza</option>
+                    <option>Nyarugenge</option>
+                    <option>Nyaruguru</option>
+                    <option>Rubavu</option>
+                    <option>Ruhango</option>
+                    <option>Rulindo</option>
+                    <option>Rusizi</option>
+                    <option>Rutsiro</option>
+                    <option>Rwamagana</option>
+                  </select>
+                </div>
                 
 
                 <div className="col-span-1">
