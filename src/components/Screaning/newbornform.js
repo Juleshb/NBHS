@@ -35,7 +35,8 @@ export default function Newborn() {
     historyOfHearingLossAmongFamilyMembers: '',
     OAEResult: ''
   });
-
+  const [showLoader, setShowLoader] = useState(false);
+  const [showButton, setShowButton] = useState(true);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const [showFailureMessage, setShowFailureMessage] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
@@ -92,6 +93,8 @@ export default function Newborn() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setShowButton(false); // Hide the button
+    setShowLoader(true); 
 
     const requestData = {
       motherName: formValues.mothername,
@@ -138,6 +141,8 @@ export default function Newborn() {
 
       if (response.ok) {
         console.log('Form submitted successfully');
+        setShowButton(true);
+        setShowLoader(false);
         setShowSuccessMessage(true);
         setShowFailureMessage(false);
         setSuccessMessage(data.message || 'Health Center Registed!');
@@ -171,6 +176,8 @@ export default function Newborn() {
         console.error('Form submission failed:', response.statusText);
         setShowFailureMessage(true);
         setShowSuccessMessage(false);
+        setShowButton(true);
+        setShowLoader(false);
         setErrorMessage(data.message || 'Failed to register');
       }
     } catch (error) {
@@ -179,6 +186,8 @@ export default function Newborn() {
       setShowFailureMessage(true);
         setShowSuccessMessage(false);
         setErrorMessage('Form submission error:', error);
+        setShowButton(true);
+       setShowLoader(false);
     }
   };
 
@@ -556,10 +565,35 @@ export default function Newborn() {
 
           
               </div>
-              <button type="submit" className="mt-4 px-4 py-3 bg-white text-primary rounded-lg hover:bg-primary hover:text-white border border-primary focus:outline-none focus:ring focus:ring-primary focus:ring-opacity-50 items-center flex"><i className='mr-2'><Icon icon="dashicons:saved" /></i>Save As Draft</button>
+              {showSuccessMessage && (
+       <div className="border-dotted m-2 px-4 py-3 border-2 border-sky-500 text-sm text-primary bg-green-100 text-center flex justify-between" >
+          <p className='items-center flex'><i className='mr-2'><Icon icon="dashicons:saved" /></i>{SuccessMessage}</p>
+          <button onClick={closeSuccessMessage}><Icon icon="bytesize:close" /></button>
+        </div>
+      )}
 
-              <button type="submit" className="mt-4 px-4 py-3 bg-primary text-white rounded-lg hover:bg-white hover:text-primary border border-primary focus:outline-none focus:ring focus:ring-primary focus:ring-opacity-50 items-center flex"><i className='mr-2'><Icon icon="dashicons:saved" /></i>Submit</button>
-            </form>
+      {/* Failure message */}
+      {showFailureMessage && (
+        <div className="border-dotted px-4 py-3 border-2 border-red-500 text-sm text-red-500 text-center flex justify-between" >
+          <p className='items-center flex'><i className='mr-2'><Icon icon="bx:error-alt" /></i>{errorMessage}</p>
+          <button onClick={closeFailureMessage}><Icon icon="bytesize:close" /></button>
+        </div>
+      )}
+              {showLoader && (
+        <div className="loader mt-4 px-4 py-3 bg-primary text-white rounded-lg hover:bg-white hover:text-primary border border-primary focus:outline-none focus:ring focus:ring-primary focus:ring-opacity-50 items-center flex"><Icon icon="svg-spinners:90-ring-with-bg" />Saving...</div>
+      )}
+ {showButton && (
+        <button
+          type="submit"
+          className="mt-4 px-4 py-3 bg-primary text-white rounded-lg hover:bg-white hover:text-primary border border-primary focus:outline-none focus:ring focus:ring-primary focus:ring-opacity-50 items-center flex"
+          onClick={handleSubmit}
+        >
+          <i className="mr-2">
+            <Icon icon="dashicons:saved" />
+          </i>
+          Submit
+        </button>
+      )}            </form>
         </div>
       </>
     )}

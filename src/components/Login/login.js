@@ -14,8 +14,13 @@ const Login = () => {
   const [errorMessage, setErrorMessage] = useState('');
   const [SuccessMessage, setSuccessMessage] = useState('');
 
+  const [showLoader, setShowLoader] = useState(false);
+  const [showButton, setShowButton] = useState(true);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setShowButton(false); // Hide the button
+    setShowLoader(true);
     // Simulating your login logic with API call
     const loginData = {
       email: email,
@@ -43,6 +48,8 @@ const Login = () => {
 
         localStorage.setItem('role', role);
         localStorage.setItem('lastName', lastName);
+        setShowButton(true);
+        setShowLoader(false);
 
         setShowSuccessMessage(true);
         setShowFailureMessage(false);
@@ -62,12 +69,16 @@ const Login = () => {
         setShowFailureMessage(true);
         setShowSuccessMessage(false);
         setErrorMessage(data.message || 'Failed to Login');
+        setShowButton(true);
+      setShowLoader(false);
       }
     } catch (error) {
       console.error('Error:', error);
       setShowFailureMessage(true);
         setShowSuccessMessage(false);
         setErrorMessage('Form submission error:', error);
+        setShowButton(true);
+        setShowLoader(false);
     }
   };
   const closeSuccessMessage = () => {
@@ -154,12 +165,25 @@ const Login = () => {
         </label>
       </div>
       <div className="text-center">
+       
+
+        {showLoader && (
+        <div className="w-full loadermt-4 px-4 py-3 bg-primary text-white rounded-lg hover:bg-white hover:text-primary border border-primary focus:outline-none focus:ring focus:ring-primary focus:ring-opacity-50 items-center flex"><Icon icon="svg-spinners:90-ring-with-bg" />Signing in...</div>
+      )}
+
+      {/* Submit button */}
+      {showButton && (
         <button
           type="submit"
-          className="w-full px-4 py-3 bg-primary text-white rounded-lg hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary focus:ring-opacity-50"
+          className="w-full text-center mt-4 px-4 py-3 bg-primary text-white rounded-lg hover:bg-white hover:text-primary border border-primary focus:outline-none focus:ring focus:ring-primary focus:ring-opacity-50 items-center flex"
+          onClick={handleSubmit}
         >
+          <i className="mr-2">
+          <Icon icon="solar:user-line-duotone" />
+          </i>
           Sign in
         </button>
+      )}
       </div>
     </form>
                   </div>
