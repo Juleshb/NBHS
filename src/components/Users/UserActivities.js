@@ -1,10 +1,10 @@
-import { Icon } from "@iconify/react";
-import { Link } from "react-router-dom";
 
 export default function UserActivities() {
   return (
     <>
-        <div className="flex flex-wrap">
+
+    <p>comming soon</p>
+        {/* <div className="flex flex-wrap">
               <div className="lg:pt-12 pt-6 w-full md:w-4/12 px-4 text-center ">
                 <div className="transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 duration-300 text-white hover:bg-primary  relative flex flex-col min-w-0 break-words bg-gradient-to-r from-cyan-500 to-blue-500 w-full mb-8 shadow-lg rounded-lg">
                   <div className="px-4 py-5 flex-auto">
@@ -91,7 +91,7 @@ By making any error your application will be Rejected</b> <br/>
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
          
        
         
