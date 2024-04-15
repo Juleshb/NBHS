@@ -15,6 +15,10 @@ const UserView = () => {
   });
 
   const [dataLoaded, setDataLoaded] = useState(false);
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+  const [showFailureMessage, setShowFailureMessage] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+  const [SuccessMessage, setSuccessMessage] = useState('');
 
   useEffect(() => {
     fetch(`https://nbhsbackend.onrender.com/DataCollection/API/users/get/single/${userId}`)
@@ -60,9 +64,15 @@ const UserView = () => {
           throw new Error('Failed to update user details');
         }
         console.log('User details updated successfully');
+        setShowSuccessMessage(true);
+        setShowFailureMessage(false);
+        setSuccessMessage('User details updated successfully');
       })
       .catch((error) => {
         console.error('Error updating user details:', error);
+        setShowFailureMessage(true);
+        setShowSuccessMessage(false);
+        setErrorMessage('Form submission error:', error);
       });
     } else if (action === 'delete') {
       fetch(`https://nbhsbackend.onrender.com/DataCollection/API/users/delete/${userId}`, {
@@ -80,6 +90,14 @@ const UserView = () => {
     }
   };
 
+  const closeSuccessMessage = () => {
+    setShowSuccessMessage(false);
+  };
+
+  const closeFailureMessage = () => {
+    setShowFailureMessage(false);
+  };
+
   return (
     <>
       <section className="relative mt-20 pt-20 block py-24 lg:pt-0 bg-blueGray-800" id="register">
@@ -94,6 +112,22 @@ const UserView = () => {
                     </div>
                   </div>
                   <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
+    {/* Success message */}
+    {showSuccessMessage && (
+       <div className="border-dotted px-4 py-3 border-2 border-sky-500 text-sm text-primary bg-green-100 text-center flex justify-between" >
+          <p className='items-center flex'><i className='mr-2'><Icon icon="dashicons:saved" /></i>{SuccessMessage}</p>
+          <button onClick={closeSuccessMessage}><Icon icon="bytesize:close" /></button>
+        </div>
+      )}
+
+      {/* Failure message */}
+      {showFailureMessage && (
+        <div className="border-dotted px-4 py-3 border-2 border-red-500 text-sm text-red-500 text-center flex justify-between" >
+          <p className='items-center flex'><i className='mr-2'><Icon icon="bx:error-alt" /></i>{errorMessage}</p>
+          <button onClick={closeFailureMessage}><Icon icon="bytesize:close" /></button>
+        </div>
+      )}
+
                     {dataLoaded ? (
                       <form onSubmit={(e) => e.preventDefault()}>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
