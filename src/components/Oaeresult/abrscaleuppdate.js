@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import Viewsingle from '../Screaning/updateborn';
 
 function BornUpdateForm() {
     const { userId } = useParams();
@@ -79,7 +80,7 @@ function BornUpdateForm() {
     }
 
   return (
-
+<>
     <form onSubmit={handleSubmit} className="max-w-sm mx-auto mt-8 mb-8 p-2">
     <div className="container mx-auto">
         <h1 className="text-2xl font-bold my-4">New Borns with Refer OAE Result</h1>
@@ -131,7 +132,9 @@ function BornUpdateForm() {
     <button type="submit" className="mt-4 px-4 py-3 bg-primary text-white rounded-lg hover:bg-white hover:text-primary border border-primary focus:outline-none focus:ring focus:ring-primary focus:ring-opacity-50 items-center flex">Save</button>
 </form>
 
+<Viewsingle />
 
+</>
 
 
 

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
+
 function BornUpdateForm() {
     const { userId } = useParams();
     const [ABRScale, setABRScale] = useState('');
@@ -79,6 +80,7 @@ function BornUpdateForm() {
     }
 
   return (
+<>
 
     <form onSubmit={handleSubmit} className="max-w-sm mx-auto mt-8 mb-8 p-2">
     <div className="container mx-auto">
@@ -129,6 +131,9 @@ function BornUpdateForm() {
     {success && <div className="text-green-500">{success}</div>}
     <button type="submit" className="mt-4 px-4 py-3 bg-primary text-white rounded-lg hover:bg-white hover:text-primary border border-primary focus:outline-none focus:ring focus:ring-primary focus:ring-opacity-50 items-center flex">Save</button>
 </form>
+
+
+</>
 
 
 
