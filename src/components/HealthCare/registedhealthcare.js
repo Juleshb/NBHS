@@ -18,7 +18,7 @@ export default function HealthcenterListe() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('https://nbhsbackend.onrender.com/DataCollection/API/healthcentre/getall');
+        const response = await fetch('https://nbhs136.onrender.com/DataCollection/API/healthcentre/getall');
         const data = await response.json();
 
         if (response.ok) {

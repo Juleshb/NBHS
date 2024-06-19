@@ -20,7 +20,7 @@ export default function Admin() {
   const fetchData = async () => {
     try {
       const authToken = localStorage.getItem('authToken');
-      const response = await axios.get('https://nbhsbackend.onrender.com/DataCollection/API/newBorns/getAllborns', {
+      const response = await axios.get('https://nbhs136.onrender.com/DataCollection/API/newBorns/getAllborns', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',

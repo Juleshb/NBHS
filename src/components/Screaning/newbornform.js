@@ -127,7 +127,7 @@ export default function Newborn() {
     try {
       const authToken = localStorage.getItem('authToken');
 
-      const response = await fetch('https://nbhsbackend.onrender.com/DataCollection/API/newBorns/add', {
+      const response = await fetch('https://nbhs136.onrender.com/DataCollection/API/newBorns/add', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

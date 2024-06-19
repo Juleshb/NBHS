@@ -13,7 +13,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     const authToken = localStorage.getItem('authToken');
-    fetch('https://nbhsbackend.onrender.com/DataCollection/API/newBorns/getAllborns', {
+    fetch('https://nbhs136.onrender.com/DataCollection/API/newBorns/getAllborns', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

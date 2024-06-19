@@ -21,7 +21,7 @@ const UserView = () => {
   const [SuccessMessage, setSuccessMessage] = useState('');
 
   useEffect(() => {
-    fetch(`https://nbhsbackend.onrender.com/DataCollection/API/users/get/single/${userId}`)
+    fetch(`https://nbhs136.onrender.com/DataCollection/API/users/get/single/${userId}`)
       .then((response) => response.json())
       .then((responseData) => {
         const userData = responseData.data;
@@ -52,7 +52,7 @@ const UserView = () => {
 
   const handleSubmit = (action) => {
     if (action === 'update') {
-      fetch(`https://nbhsbackend.onrender.com/DataCollection/API/users/update/${userId}`, {
+      fetch(`https://nbhs136.onrender.com/DataCollection/API/users/update/${userId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json'
@@ -75,7 +75,7 @@ const UserView = () => {
         setErrorMessage('Form submission error:', error);
       });
     } else if (action === 'delete') {
-      fetch(`https://nbhsbackend.onrender.com/DataCollection/API/users/delete/${userId}`, {
+      fetch(`https://nbhs136.onrender.com/DataCollection/API/users/delete/${userId}`, {
         method: 'DELETE'
       })
       .then(response => {
