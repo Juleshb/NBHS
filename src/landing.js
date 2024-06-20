@@ -144,11 +144,11 @@ const LandingPage = () => {
     
     <Icon icon="clarity:email-line" width="30" />
     
-      <h2 className="  font-light ml-5  tracking-wide md:text-center xs:text-center ">contact@phantom.com</h2>
+      <h2 className="  font-light ml-5  tracking-wide md:text-center xs:text-center ">nbhs20246@gmail.com</h2>
     </div>
     <div className="flex ml-5 mt-5">
       <Icon icon="fluent:call-24-regular" width="30" />
-      <h2 className=" ml-5  font-light tracking-wide md:text-center xs:text-center ">+250-788-888-887</h2>
+      <h2 className=" ml-5  font-light tracking-wide md:text-center xs:text-center ">+250789028283</h2>
     </div>
           </div>
        
