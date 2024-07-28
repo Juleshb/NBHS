@@ -18,7 +18,7 @@ const UserTable = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('https://nbhs136.onrender.com/DataCollection/API/users/getall');
+        const response = await fetch('https://hblab.rw/DataCollection/API/users/getall');
         const data = await response.json();
 
         if (response.ok) {

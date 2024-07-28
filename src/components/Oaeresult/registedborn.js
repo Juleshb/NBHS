@@ -19,8 +19,8 @@ export default function Registedborn() {
     try {
       const authToken = localStorage.getItem('authToken');
       const url = search
-        ? `https://nbhs136.onrender.com/DataCollection/API/newBorns/search?search=${search}`
-        : 'https://nbhs136.onrender.com/DataCollection/API/newBorns/getAll';
+        ? `https://hblab.rw/DataCollection/API/newBorns/search?search=${search}`
+        : 'https://hblab.rw/DataCollection/API/newBorns/getAll';
 
       const response = await fetch(url, {
         method: 'GET',

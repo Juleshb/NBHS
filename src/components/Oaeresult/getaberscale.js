@@ -18,7 +18,7 @@ export default function Registedborn() {
       try {
         const authToken = localStorage.getItem('authToken');
         
-        const response = await fetch('https://nbhs136.onrender.com/DataCollection/API/newBorns/getAllabrscale', {
+        const response = await fetch('https://hblab.rw/DataCollection/API/newBorns/getAllabrscale', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',

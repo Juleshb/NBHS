@@ -29,7 +29,7 @@ const Login = () => {
 
     try {
       // Assuming a fetch call to your login API
-      const response = await fetch('https://nbhs136.onrender.com/DataCollection/API/users/login', {
+      const response = await fetch('https://hblab.rw/DataCollection/API/users/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
